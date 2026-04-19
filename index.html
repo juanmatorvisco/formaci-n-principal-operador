@@ -3,98 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formación: Centrales de Ciclo Combinado</title>
+    <title>S.O.P. - Central de Ciclo Combinado</title>
     <style>
-        :root { --primary: #1a3a5a; --secondary: #27ae60; --bg: #f4f7f6; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; line-height: 1.6; }
-        header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
-        nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; sticky; top: 0; }
-        nav button { background: none; border: none; padding: 1rem 2rem; cursor: pointer; font-weight: bold; color: var(--primary); }
+        :root { 
+            --primary: #1a3a5a; 
+            --secondary: #27ae60; 
+            --accent: #e67e22;
+            --danger: #c0392b;
+            --bg: #f4f7f6; 
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; color: #333; }
+        header { background: var(--primary); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 8px solid var(--secondary); }
+        nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+        nav button { background: none; border: none; padding: 1rem 1.5rem; cursor: pointer; font-weight: bold; color: var(--primary); transition: 0.3s; }
         nav button.active { border-bottom: 4px solid var(--secondary); color: var(--secondary); }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: none; animation: fadeIn 0.5s; }
         .card.active { display: block; }
-        h2 { color: var(--primary); border-left: 6px solid var(--secondary); padding-left: 15px; }
-        .equipo { background: #eef2f3; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
-        .opcion { display: block; width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; text-align: left; background: white; }
-        .btn-next { background: var(--primary); color: white; border: none; padding: 1rem; width: 100%; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        h2 { color: var(--primary); border-left: 8px solid var(--secondary); padding-left: 15px; margin-top: 30px; }
+        h3 { color: var(--accent); margin-top: 25px; border-bottom: 1px solid #eee; }
+        
+        .section-box { background: #fdfefe; border: 1px solid #e1e8ed; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .highlight { font-weight: bold; color: var(--primary); }
+        .warning-box { background: #fdf2f2; border-left: 5px solid var(--danger); padding: 15px; margin: 20px 0; }
+        
+        /* Estilos Examen */
+        .opcion { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #eee; border-radius: 8px; cursor: pointer; text-align: left; background: white; font-size: 1rem; transition: 0.2s; }
+        .opcion:hover { border-color: var(--primary); background: #f0f4f8; }
+        .btn-next { background: var(--primary); color: white; border: none; padding: 1.2rem; width: 100%; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; margin-top: 20px; }
+        
+        ul li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Manual de Operación Técnica</h1>
-    <p>Especialización en Ciclo Combinado</p>
+    <h1>Manual Avanzado de Operación Industrial</h1>
+    <p>Centrales Térmicas de Ciclo Combinado (Gas y Vapor)</p>
 </header>
 
 <nav>
-    <button onclick="showTab('inicio')" id="btn-inicio" class="active">Inicio</button>
-    <button onclick="showTab('leccion')" id="btn-leccion">Sistemas y Equipos</button>
-    <button onclick="showTab('examen')" id="btn-examen">Examen Final</button>
+    <button onclick="showTab('inicio')" id="btn-inicio" class="active">INICIO</button>
+    <button onclick="showTab('leccion')" id="btn-leccion">MANUAL TÉCNICO</button>
+    <button onclick="showTab('examen')" id="btn-examen">CERTIFICACIÓN</button>
 </nav>
 
 <div class="container">
-    <div id="inicio" class="card active">
-        <h2>Bienvenido a la Formación</h2>
-        <p>Este portal contiene la base teórica necesaria para entender el funcionamiento de una central térmica de ciclo combinado.</p>
-        <p><strong>¿Qué vas a aprender?</strong></p>
-        <ul>
-            <li>Principios termodinámicos (Brayton y Rankine).</li>
-            <li>Equipos principales: Turbinas, Calderas y Condensadores.</li>
-            <li>Sistemas auxiliares y seguridad en planta.</li>
-        </ul>
-        <button class="btn-next" onclick="showTab('leccion')">Comenzar Lección</button>
-    </div>
 
- <div id="leccion" class="card">
-    <h1 style="color: #1a3a5a; text-align: center; border-bottom: 5px solid #27ae60; padding-bottom: 10px;">📚 Manual Maestro de Operación</h1>
-
-    <div style="background: #fdfefe; border: 2px solid #3498db; border-radius: 15px; padding: 25px; margin-bottom: 30px;">
-        <h2 style="color: #2980b9;"><i class="fas fa-stopwatch"></i> Secuencia Crítica de Arranque (Start-up)</h2>
-        <p>El arranque de un ciclo combinado es una coreografía perfecta entre mecánica y termodinámica. Se divide en fases temporales:</p>
-
-        <div style="margin-left: 20px; border-left: 3px dashed #3498db; padding-left: 20px;">
-            <h4 style="color: #2e86c1;">Fase 1: Preparación y Barrido (Purge)</h4>
-            <p>Antes de encender, el motor de arranque (o el propio generador en modo motor) hace girar la Turbina de Gas. Se hace pasar un gran flujo de aire para <strong>barrer cualquier acumulación de gas combustible</strong> en la caldera (HRSG) y evitar explosiones. <em>Duración: ~10-15 min.</em></p>
-
-            <h4 style="color: #2e86c1;">Fase 2: Ignición y Aceleración</h4>
-            <p>A una velocidad específica (~20% de la nominal), las bujías saltan y se inyecta gas. Una vez establecida la llama, la turbina acelera. Al llegar al 90% de velocidad, el motor de arranque se desacopla: la turbina ya es **autosuficiente**.</p>
-
-            <h4 style="color: #2e86c1;">Fase 3: Calentamiento de la HRSG y Sincronismo de TG</h4>
-            <p>Los gases de escape calientan los tubos de la caldera. Se empieza a generar vapor, pero este vapor no va a la turbina todavía; se envía al <strong>By-pass del Condensador</strong> hasta que tenga la temperatura y presión correctas.</p>
-
-            <h4 style="color: #2e86c1;">Fase 4: Rodaje y Carga de la Turbina de Vapor (TV)</h4>
-            <p>Es la fase más delicada. El vapor entra en la TV. Se debe pasar rápidamente por las <strong>velocidades críticas</strong> (donde la vibración es peligrosa) y luego mantener "escalones" de carga para que el metal de la turbina se dilate de forma uniforme sin rozar las carcasas.</p>
+    <div id="inicio" class="card active" style="text-align: center;">
+        <h2>Bienvenidos al Portal de Capacitación</h2>
+        <p>Esta plataforma ha sido diseñada para formar a operadores de panel y de campo en la operación segura y eficiente de plantas de generación eléctrica.</p>
+        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&w=800&q=80" alt="Planta Industrial" style="width: 100%; border-radius: 10px; margin: 20px 0;">
+        <div class="section-box">
+            <p><strong>Estado del Sistema:</strong> Operativo</p>
+            <p><strong>Nivel de Formación:</strong> Especialista Técnico</p>
         </div>
+        <button class="btn-next" onclick="showTab('leccion')">ACCEDER AL MANUAL COMPLETO</button>
     </div>
 
-    <h2 style="color: #1a3a5a;">🔍 Anatomía Detallada de Equipos</h2>
+    <div id="leccion" class="card">
+        <h2 style="text-align:center; border:none; color:var(--primary);">GUÍA TÉCNICA DE REFERENCIA</h2>
+        
+        <h3>1. Ciclo de Gas (La turbina de combustión)</h3>
+        <div class="section-box">
+            <p><span class="highlight">Compresor Axial:</span> Toma aire de la atmósfera y lo comprime en unas 16-19 etapas. El aire sale a 450°C. Es vital vigilar la formación de hielo en el invierno (anti-icing).</p>
+            <p><span class="highlight">Cámara de Combustión:</span> Se inyecta gas natural a presión. La temperatura de llama supera los 1.400°C. Aquí se controla el **"Spread"** o diferencia térmica entre quemadores.</p>
+            <p><span class="highlight">Turbina de Expansión:</span> Los gases golpean los álabes. Los primeros son huecos para permitir el paso de aire de refrigeración interno, ya que el gas está por encima del punto de fusión del metal.</p>
+        </div>
 
-    <div style="background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-        <h3 style="color: #d35400;">1. El Tren de Gas (La Potencia Bruta)</h3>
-        <p><strong>Compresor Axial:</strong> No solo comprime aire, también extrae "aire de purga" de las etapas intermedias para refrigerar los álabes de la turbina
-            
-    
+        <h3>2. HRSG y Turbina de Vapor</h3>
+        <div class="section-box">
+            <p>Los gases de escape de la TG (~600°C) entran en la <span class="highlight">HRSG (Heat Recovery Steam Generator)</span>. No hay fuego, solo transferencia de calor.</p>
+            <ul>
+                <li><strong>Economizadores:</strong> Calientan el agua líquida para evitar choque térmico en los calderines.</li>
+                <li><strong>Calderines (Drums):</strong> Recipientes donde el agua y el vapor se separan. El control de nivel aquí es la tarea más crítica del operador.</li>
+                <li><strong>Sobrecalentadores:</strong> Secan el vapor. Entrar a la turbina con vapor húmedo causaría erosión por gotas de agua (pitting).</li>
+            </ul>
+            <p><span class="highlight">Turbina de Vapor:</span> Convierte la presión del vapor en giro mecánico. Requiere un sistema de vapor de sellado para evitar que el aire exterior rompa el vacío del condensador.</p>
+        </div>
+
+        <h3>3. Procedimientos Operativos: El Arranque</h3>
+        <div class="section-box">
+            <p><strong>Fase de Purga:</strong> El motor de arranque gira la TG para limpiar la caldera de gases explosivos acumulados.</p>
+            <p><strong>Ignición:</strong> Se establece la llama. La turbina acelera hasta la velocidad de sincronismo (3.000 rpm).</p>
+            <p><strong>Calentamiento de Metal:</strong> Se deben respetar rampas de temperatura. Si el metal se calienta muy rápido, se produce **estrés térmico** y las piezas pueden fisurarse o rozar.</p>
+            <p><strong>By-pass de Vapor:</strong> Al principio, el vapor se tira al condensador. Solo cuando tiene la presión y temperatura idénticas a las del metal de la TV, se procede a la **"Admisión de Vapor"**.</p>
+        </div>
+
+        <h3>4. Seguridad y Disparos (Trips)</h3>
+        <div class="warning-box">
+            <p><strong>🛑 Disparo por Baja Presión de Aceite:</strong> Si la presión de lubricación cae, la planta para en seco. Debe entrar la bomba de emergencia de corriente continua (baterías).</p>
+            <p><strong>🛑 Pérdida de Vacío:</strong> Si el condensador no enfría bien, la presión sube y la turbina de vapor debe disparar para proteger los álabes finales.</p>
+            <p><strong>🛑 Alta Vibración:</strong> Un roce metálico o rotura de álabe generará vibraciones medidas en milímetros por segundo (mm/s). Si supera el umbral, el sistema DCS corta el combustible en milisegundos.</p>
+        </div>
+
+        <button class="btn-next" onclick="showTab('examen')">IR AL EXAMEN DE CERTIFICACIÓN</button>
+    </div>
+
+    <div id="examen" class="card">
+        <div id="quiz-box">
+            <h2>Evaluación Profesional</h2>
+            <p id="progreso" style="font-weight: bold; color: #666;"></p>
+            <p id="enunciado" style="font-size: 1.2rem; margin-bottom: 20px;"></p>
+            <div id="opciones-contenedor"></div>
+            <button id="btn-siguiente" class="btn-next" onclick="siguientePregunta()" style="display:none; background: #27ae60;">SIGUIENTE PREGUNTA</button>
+        </div>
+        
+        <div id="resultado-final" style="display:none; text-align: center;">
+            <h2>Calificación Final</h2>
+            <div id="nota-circulo" style="font-size: 4rem; font-weight: bold; margin: 20px 0;"></div>
+            <p id="mensaje-final" style="font-size: 1.2rem;"></p>
+            <button class="btn-next" onclick="reiniciarExamen()">REINTENTAR EXAMEN</button>
         </div>
     </div>
 </div>
 
 <script>
-    // LÓGICA DEL EXAMEN
     const bancoPreguntas = [
-        { q: "¿Cuál es la eficiencia de un Ciclo Combinado?", a: ["Baja (30%)", "Muy Alta (superior al 60%)", "Igual a una térmica de carbón"], c: 1 },
-        { q: "¿Qué equipo genera vapor usando el calor de escape de la turbina de gas?", a: ["El Condensador", "El Compresor", "La Caldera de Recuperación (HRSG)"], c: 2 },
-        { q: "¿Qué sistema se encarga de purificar el agua del ciclo?", a: ["La PTA", "La ERM", "El DCS"], c: 0 },
-        { q: "¿A qué temperatura aproximada salen los gases de la turbina de gas?", a: ["100°C", "600°C", "2000°C"], c: 1 },
-        { q: "El ciclo de la Turbina de Vapor se conoce como...", a: ["Ciclo Brayton", "Ciclo Rankine", "Ciclo Otto"], c: 1 },
-        { q: "¿Dónde se convierte el vapor de nuevo en agua?", a: ["En la Chimenea", "En la Cámara de Combustión", "En el Condensador"], c: 2 },
-        { q: "¿Qué hace el Compresor?", a: ["Enfría el gas", "Eleva la presión del aire de entrada", "Mueve el generador"], c: 1 },
-        { q: "¿Qué significa DCS?", a: ["Sistema de Control Distribuido", "Departamento de Calidad y Seguridad", "Dirección Central de Sistemas"], c: 0 },
-        { q: "¿Qué combustible se usa principalmente en estas plantas?", a: ["Carbón", "Gas Natural", "Gasoil"], c: 1 },
-        { q: "¿Cuál es el objetivo de los enclavamientos?", a: ["Aumentar la producción", "Garantizar la seguridad de los equipos", "Ahorrar combustible"], c: 1 }
+        { q: "¿Cuál es la función de la purga en el arranque?", a: ["Enfriar la turbina", "Limpiar gases explosivos de la caldera", "Aumentar la presión"], c: 1 },
+        { q: "¿Qué sucede si entra agua líquida en la Turbina de Vapor?", a: ["Se limpia la turbina", "Erosión y daño grave en álabes", "Nada, es normal"], c: 1 },
+        { q: "¿A qué velocidad gira el eje en sincronismo (50Hz)?", a: ["1.500 rpm", "3.600 rpm", "3.000 rpm"], c: 2 },
+        { q: "¿Cuál es el objetivo del condensador?", a: ["Generar vapor", "Crear vacío para maximizar la expansión", "Quemar gas"], c: 1 },
+        { q: "¿Qué sistema protege los cojinetes si fallan las bombas de CA?", a: ["Bomba de emergencia de CC (Baterías)", "El compresor", "La chimenea"], c: 0 },
+        { q: "¿Qué parte de la HRSG precalienta el agua líquida?", a: ["Sobrecalentador", "Evaporador", "Economizador"], c: 2 },
+        { q: "¿Qué es el 'Spread' en una Turbina de Gas?", a: ["Diferencia térmica entre quemadores", "La velocidad del aire", "La presión de aceite"], c: 0 },
+        { q: "¿Para qué sirve el vapor de sellado?", a: ["Para calentar el agua", "Para evitar entrada de aire al condensador", "Para limpiar la caldera"], c: 1 },
+        { q: "¿Qué gases se controlan para no contaminar?", a: ["Hidrógeno", "NOx y CO", "Oxígeno puro"], c: 1 },
+        { q: "¿Por qué el arranque debe ser lento?", a: ["Para ahorrar gas", "Para evitar estrés térmico en metales pesados", "Por falta de presión"], c: 1 }
     ];
 
-    let indiceActual = 0; let aciertos = 0;
+    let indiceActual = 0;
+    let aciertos = 0;
 
     function showTab(id) {
         document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
@@ -112,7 +153,8 @@
         contenedor.innerHTML = '';
         p.a.forEach((op, i) => {
             const btn = document.createElement('button');
-            btn.innerText = op; btn.className = 'opcion';
+            btn.innerText = op;
+            btn.className = 'opcion';
             btn.onclick = () => verificar(i, btn);
             contenedor.appendChild(btn);
         });
@@ -124,9 +166,12 @@
         const botones = document.querySelectorAll('.opcion');
         botones.forEach(b => b.disabled = true);
         if(sel === correcta) {
-            el.style.background = "#d4edda"; aciertos++;
+            el.style.background = "#d4edda";
+            el.style.borderColor = "#27ae60";
+            aciertos++;
         } else {
             el.style.background = "#f8d7da";
+            el.style.borderColor = "#c0392b";
             botones[correcta].style.background = "#d4edda";
         }
         document.getElementById('btn-siguiente').style.display = 'block';
@@ -143,8 +188,8 @@
         document.getElementById('resultado-final').style.display = 'block';
         const nota = (aciertos / 10) * 10;
         document.getElementById('nota-circulo').innerText = nota.toFixed(1);
-        document.getElementById('mensaje-final').innerText = nota >= 5 ? "¡Aprobado!" : "Sigue estudiando.";
-        document.getElementById('nota-circulo').style.color = nota >= 5 ? "#27ae60" : "#e74c3c";
+        document.getElementById('mensaje-final').innerText = nota >= 5 ? "¡CERTIFICADO OBTENIDO! Conocimientos validados." : "Sigue repasando el manual técnico.";
+        document.getElementById('nota-circulo').style.color = nota >= 5 ? "#27ae60" : "#c0392b";
     }
 
     function reiniciarExamen() {
@@ -153,6 +198,8 @@
         document.getElementById('resultado-final').style.display = 'none';
         cargarPregunta();
     }
+
+    cargarPregunta();
 </script>
 </body>
 </html>
