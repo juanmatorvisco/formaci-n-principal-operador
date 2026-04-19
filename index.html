@@ -3,143 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formación Operadores - Ciclo Combinado</title>
+    <title>Formación: Centrales de Ciclo Combinado</title>
     <style>
-        :root {
-            --primary: #1a3a5a; /* Azul industrial */
-            --secondary: #27ae60; /* Verde éxito */
-            --bg: #f0f2f5;
-            --text: #333;
-        }
-
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; color: var(--text); }
-        
-        header { background: var(--primary); color: white; padding: 1rem; text-align: center; shadow: 0 2px 5px rgba(0,0,0,0.2); }
-
-        nav { display: flex; justify-content: center; background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; }
-        nav button { background: none; border: none; padding: 15px 20px; cursor: pointer; font-weight: bold; color: var(--primary); border-bottom: 3px solid transparent; }
-        nav button.active { border-bottom: 3px solid var(--secondary); color: var(--secondary); }
-
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
-        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: none; }
+        :root { --primary: #1a3a5a; --secondary: #27ae60; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; line-height: 1.6; }
+        header { background: var(--primary); color: white; padding: 2rem; text-align: center; }
+        nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; sticky; top: 0; }
+        nav button { background: none; border: none; padding: 1rem 2rem; cursor: pointer; font-weight: bold; color: var(--primary); }
+        nav button.active { border-bottom: 4px solid var(--secondary); color: var(--secondary); }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; }
         .card.active { display: block; }
-
-        /* Estilos Lección */
-        .img-placeholder { background: #ddd; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 15px 0; color: #666; }
-        h2 { color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 10px; }
-
-        /* Estilos Examen */
-        .opcion { 
-            display: block; width: 100%; padding: 12px; margin: 8px 0; 
-            border: 1px solid #ccc; border-radius: 6px; cursor: pointer; text-align: left; background: #fff; transition: 0.3s;
-        }
-        .opcion:hover { background: #f8f9fa; border-color: var(--primary); }
-        .btn-check { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; font-size: 1rem; cursor: pointer; margin-top: 15px; }
-        .resultado { margin-top: 15px; padding: 10px; border-radius: 6px; text-align: center; font-weight: bold; display: none; }
+        h2 { color: var(--primary); border-left: 6px solid var(--secondary); padding-left: 15px; }
+        .equipo { background: #eef2f3; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+        .opcion { display: block; width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; text-align: left; background: white; }
+        .btn-next { background: var(--primary); color: white; border: none; padding: 1rem; width: 100%; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Planta de Ciclo Combinado</h1>
-    <p>Módulo de Formación Técnica</p>
+    <h1>Manual de Operación Técnica</h1>
+    <p>Especialización en Ciclo Combinado</p>
 </header>
 
 <nav>
     <button onclick="showTab('inicio')" id="btn-inicio" class="active">Inicio</button>
-    <button onclick="showTab('leccion')" id="btn-leccion">Lección</button>
-    <button onclick="showTab('examen')" id="btn-examen">Examen</button>
+    <button onclick="showTab('leccion')" id="btn-leccion">Sistemas y Equipos</button>
+    <button onclick="showTab('examen')" id="btn-examen">Examen Final</button>
 </nav>
 
 <div class="container">
-    
     <div id="inicio" class="card active">
-        <h2>Bienvenido, Operador</h2>
-        <p>Este portal ha sido diseñado para tu capacitación técnica. Aquí podrás aprender los principios del ciclo agua-vapor y evaluar tus conocimientos.</p>
-        <p><strong>Instrucciones:</strong></p>
+        <h2>Bienvenido a la Formación</h2>
+        <p>Este portal contiene la base teórica necesaria para entender el funcionamiento de una central térmica de ciclo combinado.</p>
+        <p><strong>¿Qué vas a aprender?</strong></p>
         <ul>
-            <li>Lee la lección en la pestaña "Lección".</li>
-            <li>Realiza el test de evaluación para certificar tu progreso.</li>
+            <li>Principios termodinámicos (Brayton y Rankine).</li>
+            <li>Equipos principales: Turbinas, Calderas y Condensadores.</li>
+            <li>Sistemas auxiliares y seguridad en planta.</li>
         </ul>
-        <button class="btn-check" onclick="showTab('leccion')">Empezar a estudiar</button>
+        <button class="btn-next" onclick="showTab('leccion')">Comenzar Lección</button>
     </div>
 
     <div id="leccion" class="card">
-        <h2>Lección 1: El Ciclo de Brayton y Rankine</h2>
-        <p>Un ciclo combinado consiste en la integración de dos ciclos termodinámicos:</p>
-        <ol>
-            <li><strong>Turbina de Gas (Ciclo Brayton):</strong> El aire se comprime, se quema con gas y expande la turbina.</li>
-            <li><strong>Caldera de Recuperación (HRSG):</strong> Aprovecha el calor de los gases de escape para generar vapor.</li>
-            <li><strong>Turbina de Vapor (Ciclo Rankine):</strong> El vapor generado mueve una segunda turbina.</li>
-        </ol>
-        <div class="img-placeholder">[Imagen Sugerida: Esquema de Turbina y Caldera]</div>
-        <p>Esta combinación permite alcanzar eficiencias superiores al 60%, muy por encima de las plantas térmicas convencionales.</p>
+        <h2>Explicación de la Central</h2>
+        <p>Una central de ciclo combinado genera energía eléctrica mediante dos ciclos consecutivos: uno de gas y otro de vapor.</p>
+        
+        <div class="equipo">
+            <h3>1. Turbina de Gas (Ciclo Brayton)</h3>
+            <p>Es el motor principal. Aspira aire, lo comprime y lo quema con gas natural. Los gases calientes expanden la turbina generando la primera etapa de electricidad.</p>
+        </div>
+
+        <div class="equipo">
+            <h3>2. Caldera de Recuperación (HRSG)</h3>
+            <p>Es el "corazón" de la unión. Aprovecha los gases calientes que salen de la turbina de gas (que están a unos 600°C) para calentar agua y producir vapor de alta presión.</p>
+        </div>
+
+        <div class="equipo">
+            <h3>3. Turbina de Vapor (Ciclo Rankine)</h3>
+            <p>El vapor de la caldera mueve esta segunda turbina. Al final, el vapor se enfría en el <strong>Condensador</strong> para volver a ser agua y repetir el proceso.</p>
+        </div>
+
+        <div class="equipo">
+            <h3>4. Sistemas Auxiliares</h3>
+            <ul>
+                <li><strong>PTA:</strong> Planta de Tratamiento de Agua (purifica el agua del ciclo).</li>
+                <li><strong>ERM:</strong> Estación de Regulación de Gas.</li>
+                <li><strong>DCS:</strong> Sistema de control digital que supervisa toda la planta.</li>
+            </ul>
+        </div>
+        <button class="btn-next" onclick="showTab('examen')">Ir al Examen</button>
     </div>
 
     <div id="examen" class="card">
-        <h2>Evaluación de Módulo</h2>
-        <p id="pregunta-texto">¿Cuál es el componente que une el ciclo de gas con el ciclo de vapor?</p>
-        <div id="opciones">
-            <button class="opcion" onclick="select(0)">A) El Condensador</button>
-            <button class="opcion" onclick="select(1)">B) La Caldera de Recuperación (HRSG)</button>
-            <button class="opcion" onclick="select(2)">C) El Compresor de Aire</button>
+        <div id="quiz-box">
+            <h2 id="pregunta-titulo">Evaluación Técnica</h2>
+            <p id="progreso" style="font-weight: bold; color: #666;"></p>
+            <p id="enunciado" style="font-size: 1.1rem; margin-bottom: 20px;"></p>
+            <div id="opciones-contenedor"></div>
+            <button id="btn-siguiente" class="btn-next" onclick="siguientePregunta()" style="display:none; background: #27ae60;">Siguiente Pregunta</button>
         </div>
-        <button class="btn-check" onclick="check()">Verificar Resultado</button>
-        <div id="res-box" class="resultado"></div>
+        
+        <div id="resultado-final" style="display:none; text-align: center;">
+            <h2>Nota Final</h2>
+            <div id="nota-circulo" style="font-size: 3rem; font-weight: bold; margin: 20px 0;"></div>
+            <p id="mensaje-final"></p>
+            <button class="btn-next" onclick="reiniciarExamen()">Reiniciar Examen</button>
+        </div>
     </div>
-
 </div>
 
 <script>
-    let selected = null;
-    const correctAns = 1; // La opción B es la correcta
+    // LÓGICA DEL EXAMEN
+    const bancoPreguntas = [
+        { q: "¿Cuál es la eficiencia de un Ciclo Combinado?", a: ["Baja (30%)", "Muy Alta (superior al 60%)", "Igual a una térmica de carbón"], c: 1 },
+        { q: "¿Qué equipo genera vapor usando el calor de escape de la turbina de gas?", a: ["El Condensador", "El Compresor", "La Caldera de Recuperación (HRSG)"], c: 2 },
+        { q: "¿Qué sistema se encarga de purificar el agua del ciclo?", a: ["La PTA", "La ERM", "El DCS"], c: 0 },
+        { q: "¿A qué temperatura aproximada salen los gases de la turbina de gas?", a: ["100°C", "600°C", "2000°C"], c: 1 },
+        { q: "El ciclo de la Turbina de Vapor se conoce como...", a: ["Ciclo Brayton", "Ciclo Rankine", "Ciclo Otto"], c: 1 },
+        { q: "¿Dónde se convierte el vapor de nuevo en agua?", a: ["En la Chimenea", "En la Cámara de Combustión", "En el Condensador"], c: 2 },
+        { q: "¿Qué hace el Compresor?", a: ["Enfría el gas", "Eleva la presión del aire de entrada", "Mueve el generador"], c: 1 },
+        { q: "¿Qué significa DCS?", a: ["Sistema de Control Distribuido", "Departamento de Calidad y Seguridad", "Dirección Central de Sistemas"], c: 0 },
+        { q: "¿Qué combustible se usa principalmente en estas plantas?", a: ["Carbón", "Gas Natural", "Gasoil"], c: 1 },
+        { q: "¿Cuál es el objetivo de los enclavamientos?", a: ["Aumentar la producción", "Garantizar la seguridad de los equipos", "Ahorrar combustible"], c: 1 }
+    ];
+
+    let indiceActual = 0; let aciertos = 0;
 
     function showTab(id) {
-        // Ocultar todas las tarjetas
         document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-        
-        // Mostrar la seleccionada
         document.getElementById(id).classList.add('active');
         document.getElementById('btn-' + id).classList.add('active');
-        
-        // Resetear examen si cambia de pestaña
-        if(id !== 'examen') resetExamen();
+        if(id === 'examen') reiniciarExamen();
     }
 
-    function select(idx) {
-        selected = idx;
-        document.querySelectorAll('.opcion').forEach((btn, i) => {
-            btn.style.background = (i === idx) ? '#e3f2fd' : '#fff';
-            btn.style.borderColor = (i === idx) ? '#1a3a5a' : '#ccc';
+    function cargarPregunta() {
+        const p = bancoPreguntas[indiceActual];
+        document.getElementById('progreso').innerText = `Pregunta ${indiceActual + 1} de 10`;
+        document.getElementById('enunciado').innerText = p.q;
+        const contenedor = document.getElementById('opciones-contenedor');
+        contenedor.innerHTML = '';
+        p.a.forEach((op, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = op; btn.className = 'opcion';
+            btn.onclick = () => verificar(i, btn);
+            contenedor.appendChild(btn);
         });
+        document.getElementById('btn-siguiente').style.display = 'none';
     }
 
-    function check() {
-        const box = document.getElementById('res-box');
-        if(selected === null) { alert("Selecciona una respuesta"); return; }
-        
-        box.style.display = "block";
-        if(selected === correctAns) {
-            box.innerText = "¡CORRECTO! Has comprendido la integración de ciclos.";
-            box.style.background = "#d4edda";
-            box.style.color = "#155724";
+    function verificar(sel, el) {
+        const correcta = bancoPreguntas[indiceActual].c;
+        const botones = document.querySelectorAll('.opcion');
+        botones.forEach(b => b.disabled = true);
+        if(sel === correcta) {
+            el.style.background = "#d4edda"; aciertos++;
         } else {
-            box.innerText = "INCORRECTO. Revisa la lección sobre la HRSG.";
-            box.style.background = "#f8d7da";
-            box.style.color = "#721c24";
+            el.style.background = "#f8d7da";
+            botones[correcta].style.background = "#d4edda";
         }
+        document.getElementById('btn-siguiente').style.display = 'block';
     }
 
-    function resetExamen() {
-        selected = null;
-        document.getElementById('res-box').style.display = "none";
-        document.querySelectorAll('.opcion').forEach(btn => {
-            btn.style.background = "#fff";
-            btn.style.borderColor = "#ccc";
-        });
+    function siguientePregunta() {
+        indiceActual++;
+        if(indiceActual < bancoPreguntas.length) cargarPregunta();
+        else mostrarResultado();
+    }
+
+    function mostrarResultado() {
+        document.getElementById('quiz-box').style.display = 'none';
+        document.getElementById('resultado-final').style.display = 'block';
+        const nota = (aciertos / 10) * 10;
+        document.getElementById('nota-circulo').innerText = nota.toFixed(1);
+        document.getElementById('mensaje-final').innerText = nota >= 5 ? "¡Aprobado!" : "Sigue estudiando.";
+        document.getElementById('nota-circulo').style.color = nota >= 5 ? "#27ae60" : "#e74c3c";
+    }
+
+    function reiniciarExamen() {
+        indiceActual = 0; aciertos = 0;
+        document.getElementById('quiz-box').style.display = 'block';
+        document.getElementById('resultado-final').style.display = 'none';
+        cargarPregunta();
     }
 </script>
-
 </body>
 </html>
