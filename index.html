@@ -46,36 +46,50 @@
         <button class="btn-next" onclick="showTab('leccion')">Comenzar Lección</button>
     </div>
 
-    <div id="leccion" class="card">
-        <h2>Explicación de la Central</h2>
-        <p>Una central de ciclo combinado genera energía eléctrica mediante dos ciclos consecutivos: uno de gas y otro de vapor.</p>
-        
-        <div class="equipo">
-            <h3>1. Turbina de Gas (Ciclo Brayton)</h3>
-            <p>Es el motor principal. Aspira aire, lo comprime y lo quema con gas natural. Los gases calientes expanden la turbina generando la primera etapa de electricidad.</p>
-        </div>
-
-        <div class="equipo">
-            <h3>2. Caldera de Recuperación (HRSG)</h3>
-            <p>Es el "corazón" de la unión. Aprovecha los gases calientes que salen de la turbina de gas (que están a unos 600°C) para calentar agua y producir vapor de alta presión.</p>
-        </div>
-
-        <div class="equipo">
-            <h3>3. Turbina de Vapor (Ciclo Rankine)</h3>
-            <p>El vapor de la caldera mueve esta segunda turbina. Al final, el vapor se enfría en el <strong>Condensador</strong> para volver a ser agua y repetir el proceso.</p>
-        </div>
-
-        <div class="equipo">
-            <h3>4. Sistemas Auxiliares</h3>
-            <ul>
-                <li><strong>PTA:</strong> Planta de Tratamiento de Agua (purifica el agua del ciclo).</li>
-                <li><strong>ERM:</strong> Estación de Regulación de Gas.</li>
-                <li><strong>DCS:</strong> Sistema de control digital que supervisa toda la planta.</li>
-            </ul>
-        </div>
-        <button class="btn-next" onclick="showTab('examen')">Ir al Examen</button>
+   <div id="leccion" class="card">
+    <h2>Módulos de Formación Técnica</h2>
+    
+    <div class="equipo">
+        <h3>Módulo 1: El Ciclo de Gas (La Potencia Primaria)</h3>
+        <p>La **Turbina de Gas** es el motor aeroderivado de la planta. Se divide en tres secciones clave:</p>
+        <ul>
+            <li><strong>Compresor Axial:</strong> Eleva la presión del aire atmosférico hasta 15-20 bares. Un ensuciamiento aquí baja drásticamente el rendimiento.</li>
+            <li><strong>Cámara de Combustión:</strong> Donde el gas natural se quema con el aire comprimido, alcanzando temperaturas superiores a 1.200°C.</li>
+            <li><strong>Turbina de Expansión:</strong> Los gases calientes golpean los álabes. Los primeros álabes suelen estar refrigerados internamente por aire para no fundirse.</li>
+        </ul>
     </div>
 
+    <div class="equipo">
+        <h3>Módulo 2: El Ciclo de Vapor (Recuperación de Energía)</h3>
+        <p>Aquí aprovechamos lo que otros tiran. El sistema **HRSG (Caldera de Recuperación)** no tiene quemadores (normalmente), usa solo el calor del escape:</p>
+        <ul>
+            <li><strong>Alta, Media y Baja Presión:</strong> El vapor se genera en tres niveles distintos para exprimir cada grado de temperatura de los gases.</li>
+            <li><strong>El Condensador:</strong> Es el pulmón del ciclo. Trabaja en vacío casi absoluto para "succionar" el vapor de la turbina y mejorar la eficiencia.</li>
+            <li><strong>Bombas de Agua de Alimentación:</strong> Son el corazón del sistema, enviando agua a altísima presión hacia la caldera.</li>
+        </ul>
+    </div>
+
+    <div class="equipo">
+        <h3>Módulo 3: Sistemas de Sellado y Lubricación</h3>
+        <p>Sin estos sistemas, las máquinas se destruirían en segundos:</p>
+        <ul>
+            <li><strong>Aceite de Lubricación:</strong> Mantiene una película de aceite en los cojinetes para que el eje (que pesa toneladas) flote y no haya contacto metal-metal.</li>
+            <li><strong>Vapor de Sellado:</strong> Se usa en los extremos de la Turbina de Vapor para evitar que el aire entre al condensador (pérdida de vacío) o que el vapor escape a la atmósfera.</li>
+        </ul>
+    </div>
+
+    <div class="equipo">
+        <h3>Módulo 4: Química del Agua y PTA</h3>
+        <p>Un error aquí perfora la caldera en meses:</p>
+        <ul>
+            <li><strong>Desmineralización:</strong> Eliminación de sales para evitar incrustaciones.</li>
+            <li><strong>Desgasificación:</strong> Eliminación del oxígeno disuelto para evitar la corrosión de los tubos.</li>
+            <li><strong>Control de pH:</strong> Normalmente se mantiene ligeramente básico (entorno a 9.2) mediante la inyección de amoníaco.</li>
+        </ul>
+    </div>
+
+    <button class="btn-next" onclick="showTab('examen')">Ir al Examen de Certificación</button>
+</div>
     <div id="examen" class="card">
         <div id="quiz-box">
             <h2 id="pregunta-titulo">Evaluación Técnica</h2>
