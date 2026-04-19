@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación Operadores - Ciclo Combinado</title>
+    <style>
+        :root {
+            --primary: #1a3a5a; /* Azul industrial */
+            --secondary: #27ae60; /* Verde éxito */
+            --bg: #f0f2f5;
+            --text: #333;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; color: var(--text); }
+        
+        header { background: var(--primary); color: white; padding: 1rem; text-align: center; shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        nav { display: flex; justify-content: center; background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; }
+        nav button { background: none; border: none; padding: 15px 20px; cursor: pointer; font-weight: bold; color: var(--primary); border-bottom: 3px solid transparent; }
+        nav button.active { border-bottom: 3px solid var(--secondary); color: var(--secondary); }
+
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: none; }
+        .card.active { display: block; }
+
+        /* Estilos Lección */
+        .img-placeholder { background: #ddd; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 15px 0; color: #666; }
+        h2 { color: var(--primary); border-left: 5px solid var(--secondary); padding-left: 10px; }
+
+        /* Estilos Examen */
+        .opcion { 
+            display: block; width: 100%; padding: 12px; margin: 8px 0; 
+            border: 1px solid #ccc; border-radius: 6px; cursor: pointer; text-align: left; background: #fff; transition: 0.3s;
+        }
+        .opcion:hover { background: #f8f9fa; border-color: var(--primary); }
+        .btn-check { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; font-size: 1rem; cursor: pointer; margin-top: 15px; }
+        .resultado { margin-top: 15px; padding: 10px; border-radius: 6px; text-align: center; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Planta de Ciclo Combinado</h1>
+    <p>Módulo de Formación Técnica</p>
+</header>
+
+<nav>
+    <button onclick="showTab('inicio')" id="btn-inicio" class="active">Inicio</button>
+    <button onclick="showTab('leccion')" id="btn-leccion">Lección</button>
+    <button onclick="showTab('examen')" id="btn-examen">Examen</button>
+</nav>
+
+<div class="container">
+    
+    <div id="inicio" class="card active">
+        <h2>Bienvenido, Operador</h2>
+        <p>Este portal ha sido diseñado para tu capacitación técnica. Aquí podrás aprender los principios del ciclo agua-vapor y evaluar tus conocimientos.</p>
+        <p><strong>Instrucciones:</strong></p>
+        <ul>
+            <li>Lee la lección en la pestaña "Lección".</li>
+            <li>Realiza el test de evaluación para certificar tu progreso.</li>
+        </ul>
+        <button class="btn-check" onclick="showTab('leccion')">Empezar a estudiar</button>
+    </div>
+
+    <div id="leccion" class="card">
+        <h2>Lección 1: El Ciclo de Brayton y Rankine</h2>
+        <p>Un ciclo combinado consiste en la integración de dos ciclos termodinámicos:</p>
+        <ol>
+            <li><strong>Turbina de Gas (Ciclo Brayton):</strong> El aire se comprime, se quema con gas y expande la turbina.</li>
+            <li><strong>Caldera de Recuperación (HRSG):</strong> Aprovecha el calor de los gases de escape para generar vapor.</li>
+            <li><strong>Turbina de Vapor (Ciclo Rankine):</strong> El vapor generado mueve una segunda turbina.</li>
+        </ol>
+        <div class="img-placeholder">[Imagen Sugerida: Esquema de Turbina y Caldera]</div>
+        <p>Esta combinación permite alcanzar eficiencias superiores al 60%, muy por encima de las plantas térmicas convencionales.</p>
+    </div>
+
+    <div id="examen" class="card">
+        <h2>Evaluación de Módulo</h2>
+        <p id="pregunta-texto">¿Cuál es el componente que une el ciclo de gas con el ciclo de vapor?</p>
+        <div id="opciones">
+            <button class="opcion" onclick="select(0)">A) El Condensador</button>
+            <button class="opcion" onclick="select(1)">B) La Caldera de Recuperación (HRSG)</button>
+            <button class="opcion" onclick="select(2)">C) El Compresor de Aire</button>
+        </div>
+        <button class="btn-check" onclick="check()">Verificar Resultado</button>
+        <div id="res-box" class="resultado"></div>
+    </div>
+
+</div>
+
+<script>
+    let selected = null;
+    const correctAns = 1; // La opción B es la correcta
+
+    function showTab(id) {
+        // Ocultar todas las tarjetas
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        
+        // Mostrar la seleccionada
+        document.getElementById(id).classList.add('active');
+        document.getElementById('btn-' + id).classList.add('active');
+        
+        // Resetear examen si cambia de pestaña
+        if(id !== 'examen') resetExamen();
+    }
+
+    function select(idx) {
+        selected = idx;
+        document.querySelectorAll('.opcion').forEach((btn, i) => {
+            btn.style.background = (i === idx) ? '#e3f2fd' : '#fff';
+            btn.style.borderColor = (i === idx) ? '#1a3a5a' : '#ccc';
+        });
+    }
+
+    function check() {
+        const box = document.getElementById('res-box');
+        if(selected === null) { alert("Selecciona una respuesta"); return; }
+        
+        box.style.display = "block";
+        if(selected === correctAns) {
+            box.innerText = "¡CORRECTO! Has comprendido la integración de ciclos.";
+            box.style.background = "#d4edda";
+            box.style.color = "#155724";
+        } else {
+            box.innerText = "INCORRECTO. Revisa la lección sobre la HRSG.";
+            box.style.background = "#f8d7da";
+            box.style.color = "#721c24";
+        }
+    }
+
+    function resetExamen() {
+        selected = null;
+        document.getElementById('res-box').style.display = "none";
+        document.querySelectorAll('.opcion').forEach(btn => {
+            btn.style.background = "#fff";
+            btn.style.borderColor = "#ccc";
+        });
+    }
+</script>
+
+</body>
+</html>
