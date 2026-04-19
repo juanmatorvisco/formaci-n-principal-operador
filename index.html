@@ -92,4 +92,114 @@
                 <li><strong>Purga (Purge):</strong> Se gira la turbina con el motor de arranque para mover aire y limpiar la caldera de posibles acumulaciones de gas.</li>
                 <li><strong>Ignición:</strong> Se encienden los quemadores y la turbina acelera hasta 3.000 rpm (Sincronismo).</li>
                 <li><strong>By-pass de Vapor:</strong> Mientras la caldera se calienta, el vapor no tiene calidad para la turbina. Se envía directamente al condensador.</li>
-                <li><strong>Rolling (Rodaje):</strong> Cuando el vapor tiene la temperatura exacta (matching
+                <li><strong>Rolling (Rodaje):</strong> Cuando el vapor tiene la temperatura exacta (matching) respecto al metal de la turbina de vapor, se permite su entrada.</li>
+            </ol>
+        </div>
+
+        <div class="modulo danger-zone">
+            <h2>Módulo 4: Seguridad, Trips y Emergencias</h2>
+            <h3>4.1 El Sistema de Lubricación</h3>
+            <p>Si la presión de aceite de los cojinetes cae, la fricción fundiría el metal en segundos. En caso de "Blackout", debe entrar la <strong>Bomba de Corriente Continua (DC)</strong> alimentada por baterías para proteger el eje mientras se detiene.</p>
+            <h3>4.2 Pérdida de Vacío</h3>
+            <p>El condensador necesita agua fría constante. Si las bombas de agua de circulación fallan, el vapor no condensa, la presión sube y la turbina de vapor hace un "Trip" inmediato para evitar daños catastróficos por sobrecalentamiento.</p>
+        </div>
+
+        <button class="btn-check" onclick="showTab('examen')">HE TERMINADO EL ESTUDIO - IR AL EXAMEN</button>
+    </div>
+
+    <div id="examen" class="card">
+        <div id="quiz-box">
+            <h2>Certificación de Conocimientos</h2>
+            <p id="progreso" style="font-weight: bold; color: #666;"></p>
+            <p id="enunciado" style="font-size: 1.2rem; margin-bottom: 25px;"></p>
+            <div id="opciones-contenedor"></div>
+            <button id="btn-siguiente" class="btn-check" onclick="siguientePregunta()" style="display:none;">SIGUIENTE PREGUNTA</button>
+        </div>
+        
+        <div id="resultado-final" style="display:none; text-align: center;">
+            <h2>Resultado de la Evaluación</h2>
+            <div id="nota-circulo" style="font-size: 4rem; font-weight: bold; margin: 20px 0;"></div>
+            <p id="mensaje-final" style="font-size: 1.2rem;"></p>
+            <button class="btn-check" onclick="reiniciarExamen()">REPETIR CAPACITACIÓN</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const bancoPreguntas = [
+        { q: "¿Qué componente evita el 'Surging' en el compresor axial?", a: ["Los álabes de la turbina", "Las válvulas IGV", "El condensador"], c: 1 },
+        { q: "¿Para qué sirve la purga antes del encendido?", a: ["Para calentar el agua", "Para eliminar gas acumulado en la caldera", "Para limpiar el generador"], c: 1 },
+        { q: "¿Qué sucede si el nivel del calderín (drum) es demasiado alto?", a: ["Se genera más energía", "Riesgo de arrastre de agua a la turbina", "La caldera se enfría"], c: 1 },
+        { q: "¿Cuál es la función del economizador?", a: ["Precalentar el agua líquida", "Enfriar los gases de escape", "Generar electricidad"], c: 0 },
+        { q: "¿Qué sistema protege los cojinetes durante un apagón total?", a: ["La chimenea", "La bomba de emergencia de CC (Baterías)", "El compresor"], c: 1 },
+        { q: "¿A qué velocidad debe girar la turbina para sincronizar a 50Hz?", a: ["1.500 rpm", "3.000 rpm", "3.600 rpm"], c: 1 },
+        { q: "¿Dónde se produce el cambio de fase de vapor a agua líquida?", a: ["En el sobrecalentador", "En el evaporador", "En el condensador"], c: 2 },
+        { q: "¿Por qué el vapor debe estar sobrecalentado antes de entrar a la TV?", a: ["Para que pese menos", "Para evitar que gotas de agua dañen los álabes", "Para ahorrar gas"], c: 1 },
+        { q: "¿Qué es el 'Spread' en una Turbina de Gas?", a: ["La presión de salida", "La diferencia térmica entre quemadores", "La velocidad del aire"], c: 1 },
+        { q: "¿Cuál es la función principal del vacío en el condensador?", a: ["Succionar el vapor para maximizar la expansión", "Enfriar la sala de control", "Limpiar el agua"], c: 0 }
+    ];
+
+    let indiceActual = 0; let aciertos = 0;
+
+    function showTab(id) {
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.getElementById('btn-' + id).classList.add('active');
+        if(id === 'examen') reiniciarExamen();
+    }
+
+    function cargarPregunta() {
+        const p = bancoPreguntas[indiceActual];
+        document.getElementById('progreso').innerText = `Pregunta ${indiceActual + 1} de 10`;
+        document.getElementById('enunciado').innerText = p.q;
+        const contenedor = document.getElementById('opciones-contenedor');
+        contenedor.innerHTML = '';
+        p.a.forEach((op, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = op; btn.className = 'opcion';
+            btn.onclick = () => verificar(i, btn);
+            contenedor.appendChild(btn);
+        });
+        document.getElementById('btn-siguiente').style.display = 'none';
+    }
+
+    function verificar(sel, el) {
+        const correcta = bancoPreguntas[indiceActual].c;
+        const botones = document.querySelectorAll('.opcion');
+        botones.forEach(b => b.disabled = true);
+        if(sel === correcta) {
+            el.style.background = "#d4edda"; el.style.borderColor = "#27ae60"; aciertos++;
+        } else {
+            el.style.background = "#f8d7da"; el.style.borderColor = "#d8315b";
+            botones[correcta].style.background = "#d4edda";
+        }
+        document.getElementById('btn-siguiente').style.display = 'block';
+    }
+
+    function siguientePregunta() {
+        indiceActual++;
+        if(indiceActual < bancoPreguntas.length) cargarPregunta();
+        else mostrarResultado();
+    }
+
+    function mostrarResultado() {
+        document.getElementById('quiz-box').style.display = 'none';
+        document.getElementById('resultado-final').style.display = 'block';
+        const nota = (aciertos / 10) * 10;
+        document.getElementById('nota-circulo').innerText = nota.toFixed(1);
+        document.getElementById('mensaje-final').innerText = nota >= 5 ? "¡CERTIFICACIÓN APROBADA! Excelente nivel técnico." : "Nivel insuficiente. Repasa el manual.";
+        document.getElementById('nota-circulo').style.color = nota >= 5 ? "#27ae60" : "#d8315b";
+    }
+
+    function reiniciarExamen() {
+        indiceActual = 0; aciertos = 0;
+        document.getElementById('quiz-box').style.display = 'block';
+        document.getElementById('resultado-final').style.display = 'none';
+        cargarPregunta();
+    }
+    cargarPregunta();
+</script>
+</body>
+</html>
