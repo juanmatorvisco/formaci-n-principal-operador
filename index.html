@@ -47,63 +47,48 @@
     </div>
 
    <div id="leccion" class="card">
-    <h2>Módulos de Formación Técnica</h2>
-    
-    <div class="equipo">
-        <h3>Módulo 1: El Ciclo de Gas (La Potencia Primaria)</h3>
-        <p>La **Turbina de Gas** es el motor aeroderivado de la planta. Se divide en tres secciones clave:</p>
-        <ul>
-            <li><strong>Compresor Axial:</strong> Eleva la presión del aire atmosférico hasta 15-20 bares. Un ensuciamiento aquí baja drásticamente el rendimiento.</li>
-            <li><strong>Cámara de Combustión:</strong> Donde el gas natural se quema con el aire comprimido, alcanzando temperaturas superiores a 1.200°C.</li>
-            <li><strong>Turbina de Expansión:</strong> Los gases calientes golpean los álabes. Los primeros álabes suelen estar refrigerados internamente por aire para no fundirse.</li>
-        </ul>
-    </div>
+    <h2>Centro de Formación Técnica Avanzada</h2>
+    <p>Haz clic en cada sistema para expandir la información técnica detallada.</p>
 
-    <div class="equipo">
-        <h3>Módulo 2: El Ciclo de Vapor (Recuperación de Energía)</h3>
-        <p>Aquí aprovechamos lo que otros tiran. El sistema **HRSG (Caldera de Recuperación)** no tiene quemadores (normalmente), usa solo el calor del escape:</p>
-        <ul>
-            <li><strong>Alta, Media y Baja Presión:</strong> El vapor se genera en tres niveles distintos para exprimir cada grado de temperatura de los gases.</li>
-            <li><strong>El Condensador:</strong> Es el pulmón del ciclo. Trabaja en vacío casi absoluto para "succionar" el vapor de la turbina y mejorar la eficiencia.</li>
-            <li><strong>Bombas de Agua de Alimentación:</strong> Son el corazón del sistema, enviando agua a altísima presión hacia la caldera.</li>
-        </ul>
-    </div>
-
-    <div class="equipo">
-        <h3>Módulo 3: Sistemas de Sellado y Lubricación</h3>
-        <p>Sin estos sistemas, las máquinas se destruirían en segundos:</p>
-        <ul>
-            <li><strong>Aceite de Lubricación:</strong> Mantiene una película de aceite en los cojinetes para que el eje (que pesa toneladas) flote y no haya contacto metal-metal.</li>
-            <li><strong>Vapor de Sellado:</strong> Se usa en los extremos de la Turbina de Vapor para evitar que el aire entre al condensador (pérdida de vacío) o que el vapor escape a la atmósfera.</li>
-        </ul>
-    </div>
-
-    <div class="equipo">
-        <h3>Módulo 4: Química del Agua y PTA</h3>
-        <p>Un error aquí perfora la caldera en meses:</p>
-        <ul>
-            <li><strong>Desmineralización:</strong> Eliminación de sales para evitar incrustaciones.</li>
-            <li><strong>Desgasificación:</strong> Eliminación del oxígeno disuelto para evitar la corrosión de los tubos.</li>
-            <li><strong>Control de pH:</strong> Normalmente se mantiene ligeramente básico (entorno a 9.2) mediante la inyección de amoníaco.</li>
-        </ul>
-    </div>
-
-    <button class="btn-next" onclick="showTab('examen')">Ir al Examen de Certificación</button>
-</div>
-    <div id="examen" class="card">
-        <div id="quiz-box">
-            <h2 id="pregunta-titulo">Evaluación Técnica</h2>
-            <p id="progreso" style="font-weight: bold; color: #666;"></p>
-            <p id="enunciado" style="font-size: 1.1rem; margin-bottom: 20px;"></p>
-            <div id="opciones-contenedor"></div>
-            <button id="btn-siguiente" class="btn-next" onclick="siguientePregunta()" style="display:none; background: #27ae60;">Siguiente Pregunta</button>
+    <details class="equipo" style="cursor:pointer; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+        <summary><strong style="font-size: 1.2rem; color: #1a3a5a;">1. Turbina de Gas y Ciclo Brayton</strong></summary>
+        <div style="padding-top: 15px;">
+            <p><strong>El Compresor:</strong> Realiza una compresión adiabática. Es vital vigilar la formación de hielo (icing) en los álabes de entrada y la limpieza para evitar el "Surge" o bombeo.</p>
+            <p><strong>Turbina de Expansión:</strong> Los gases entran a unos 1.300°C. La refrigeración de los álabes (film cooling) es crítica para evitar fallos catastróficos.</p>
+            <p><strong>Protecciones (Trips):</strong> Disparo por alta vibración, alta temperatura de escape (Spread) y sobrevelocidad.</p>
         </div>
-        
-        <div id="resultado-final" style="display:none; text-align: center;">
-            <h2>Nota Final</h2>
-            <div id="nota-circulo" style="font-size: 3rem; font-weight: bold; margin: 20px 0;"></div>
-            <p id="mensaje-final"></p>
-            <button class="btn-next" onclick="reiniciarExamen()">Reiniciar Examen</button>
+    </details>
+
+    <details class="equipo" style="cursor:pointer; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+        <summary><strong style="font-size: 1.2rem; color: #1a3a5a;">2. Caldera (HRSG) y Ciclo Rankine</strong></summary>
+        <div style="padding-top: 15px;">
+            <p><strong>Niveles de Presión:</strong> Se divide en Alta (AP), Media (MP) y Baja Presión (BP). Cada nivel tiene su propio calderín (drum).</p>
+            <p><strong>El Condensador:</strong> Su función es crear el vacío para que el vapor se expanda al máximo. Se vigila la diferencia de temperatura (Terminal Temperature Difference).</p>
+            <p><strong>Bombas de Alimentación:</strong> Generalmente son multietapa. Deben tener un flujo mínimo para evitar cavitación.</p>
+        </div>
+    </details>
+
+    <details class="equipo" style="cursor:pointer; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+        <summary><strong style="font-size: 1.2rem; color: #1a3a5a;">3. Procedimientos Operativos (SOP)</strong></summary>
+        <div style="padding-top: 15px;">
+            <p><strong>Arranque en Frío:</strong> Requiere tiempos de calentamiento lentos para evitar estrés térmico en el cuerpo de la Turbina de Vapor y en el calderín de AP.</p>
+            <p><strong>Rodaje de la Turbina:</strong> Paso por las velocidades críticas para evitar resonancia en el eje.</p>
+            <p><strong>Sincronización:</strong> El momento en que el generador se conecta a la red eléctrica nacional (50Hz en Europa).</p>
+        </div>
+    </details>
+
+    <details class="equipo" style="cursor:pointer; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+        <summary><strong style="font-size: 1.2rem; color: #1a3a5a;">4. Protecciones, Seguridad y Averías</strong></summary>
+        <div style="padding-top: 15px;">
+            <p><strong>Enclavamientos Críticos:</strong> Si el sistema de aceite de lubricación pierde presión, la bomba de emergencia de CC (Corriente Continua) debe entrar instantáneamente.</p>
+            <p><strong>Seguridad en Planta:</strong> Cuidado con las fugas de vapor (invisibles y cortantes), el ruido (protección auditiva obligatoria) y el manejo de químicos (amoníaco, hipoclorito).</p>
+            <p><strong>Averías Típicas:</strong> Erosión de álabes, fugas en tubos de la HRSG por fatiga térmica y problemas de vacío por entradas de aire.</p>
+        </div>
+    </details>
+
+    <button class="btn-next" onclick="showTab('examen')" style="margin-top: 20px;">Ir al Examen de Especialista</button>
+</div>
+    
         </div>
     </div>
 </div>
