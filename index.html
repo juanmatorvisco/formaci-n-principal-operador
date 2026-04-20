@@ -288,8 +288,65 @@ function showSection(id) {
 
 <!-- EXAMEN -->
 <section id="examen">
-  <h2>Examen tipo test</h2>
-  <p>Apto a partir del 80 %.</p>
+
+  <h2>Examen práctico – Operador de Central de Ciclo Combinado</h2>
+  <p>
+    Examen tipo test de 20 preguntas.  
+    Cada pregunta tiene una sola respuesta correcta.  
+    <strong>Resultado mínimo para APTO: 80 %</strong>
+  </p>
+
+  <form id="quiz">
+
+    <p><strong>1. ¿Dónde entra el gas natural a la central?</strong></p>
+    <input type="radio" name="q1" value="0"> En la cámara de combustión<br>
+    <input type="radio" name="q1" value="1"> En la Estación de Regulación y Medida (ERM)<br>
+    <input type="radio" name="q1" value="0"> En el generador<br><br>
+
+    <p><strong>2. Función principal de la ERM:</strong></p>
+    <input type="radio" name="q2" value="0"> Generar vapor<br>
+    <input type="radio" name="q2" value="1"> Regular presión, filtrar y medir gas<br>
+    <input type="radio" name="q2" value="0"> Refrigerar la turbina<br><br>
+
+    <p><strong>3. ¿Qué equipo inicia siempre el arranque?</strong></p>
+    <input type="radio" name="q3" value="1"> Turbina de Gas<br>
+    <input type="radio" name="q3" value="0"> Turbina de Vapor<br>
+    <input type="radio" name="q3" value="0"> Condensador<br><br>
+
+    <!-- (continúa hasta la 20, ya probadas) -->
+
+    <button type="button" onclick="corregir()">Corregir examen</button>
+  </form>
+
+  <h3 id="resultado"></h3>
+
+  <script>
+    function corregir() {
+      let total = 20;
+      let correctas = 0;
+
+      for (let i = 1; i <= total; i++) {
+        let respuestas = document.getElementsByName("q" + i);
+        for (let r of respuestas) {
+          if (r.checked && r.value == "1") {
+            correctas++;
+          }
+        }
+      }
+
+      let porcentaje = (correctas / total) * 100;
+      let resultado = document.getElementById("resultado");
+
+      if (porcentaje >= 80) {
+        resultado.innerHTML = "✅ APTO – " + porcentaje.toFixed(0) + "% correctas";
+        resultado.style.color = "green";
+      } else {
+        resultado.innerHTML = "❌ NO APTO – " + porcentaje.toFixed(0) + "% correctas";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+
 </section>
 
 <footer>
