@@ -7,80 +7,16 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
   background: #f4f6f8;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-header {
-  background: #1f3a5f;
-  color: white;
-  padding: 15px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 22px;
-}
-
-nav {
-  background: #2c4e7a;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-nav button {
-  background: none;
-  border: none;
-  color: white;
-  padding: 12px 18px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-nav button:hover {
-  background: #1f3a5f;
-}
-
-section {
-  display: none;
-  padding: 20px;
-}
-
-section.active {
-  display: block;
-}
-
-h2 {
-  color: #1f3a5f;
-}
-
-details {
-  background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-left: 5px solid #1f3a5f;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #1f3a5f;
-  color: white;
-  margin-top: 40px;
-}
-
-.question {
-  margin-bottom: 15px;
-}
-
-</style>
-/* ===== PORTADA / HERO ===== */
-
+/* ===== PORTADA ===== */
 .hero {
   height: 100vh;
-  background-image: url("img/central.jpg");
+  background-image: url("img/R.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -90,9 +26,8 @@ footer {
 .hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .hero-content {
@@ -111,18 +46,18 @@ footer {
 }
 
 .hero h2 {
-  font-size: 24px;
+  font-size: 22px;
+  max-width: 800px;
   font-weight: normal;
-  max-width: 700px;
 }
 
 .hero button {
-  margin-top: 25px;
-  padding: 14px 28px;
+  margin-top: 30px;
+  padding: 15px 30px;
   font-size: 18px;
   background: #1e90ff;
-  color: white;
   border: none;
+  color: white;
   cursor: pointer;
   width: fit-content;
 }
@@ -130,610 +65,227 @@ footer {
 .hero button:hover {
   background: #1565c0;
 }
+
+/* ===== NAVEGACIÓN ===== */
+nav {
+  background: #1f3a5f;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+nav button:hover {
+  background: #162b45;
+}
+
+/* ===== SECCIONES ===== */
+section {
+  display: none;
+  padding: 30px;
+  background: white;
+}
+
+section.active {
+  display: block;
+}
+
+h2 {
+  color: #1f3a5f;
+  border-bottom: 2px solid #ddd;
+}
+
+h3 {
+  color: #295f85;
+}
+
+details {
+  background: #f9f9f9;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-left: 6px solid #1f3a5f;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1f3a5f;
+  color: white;
+}
+
+/* ===== EXAMEN ===== */
+.correcto { color: green; }
+.incorrecto { color: red; }
+</style>
+
 <script>
 function showSection(id) {
   document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 </script>
-
 </head>
 
 <body>
 
-<header>
-  <h1>Formación Operador – Central de Ciclo Combinado</h1>
-</header>
-
-<nav>
-  <button onclick="showSection('inicio')">Inicio</button>
-  <button onclick="showSection('central')">La Central</button>
-  <button onclick="showSection('sistemas')">Sistemas</button>
-  <button onclick="showSection('funcionamiento')">Funcionamiento</button>
-  <button onclick="showSection('arranque')">Guía de Arranque</button>
-  <button onclick="showSection('examen')">Examen</button>
-</nav>
-
+<!-- PORTADA -->
 <section id="inicio" class="active">
-
   <div class="hero">
     <div class="hero-content">
       <h1>Formación de Operadores</h1>
       <h2>
-        Central de Ciclo Combinado – Formación técnica completa desde
-        la entrada del gas hasta la generación de electricidad.
+        Central de Ciclo Combinado  
+        Comprensión completa de la central desde la entrada del gas
+        hasta la generación y entrega de electricidad a la red.
       </h2>
-
-      <button onclick="showSection('central')">
-        Empezar formación
-      </button>
+      <button onclick="showSection('central')">Empezar formación</button>
     </div>
   </div>
+</section>
 
-</section>
-``
-</section>
+<nav>
+  <button onclick="showSection('central')">La Central</button>
+  <button onclick="showSection('sistemas')">Sistemas</button>
+  <button onclick="showSection('funcionamiento')">Funcionamiento</button>
+  <button onclick="showSection('arranque')">Arranque</button>
+  <button onclick="showSection('examen')">Examen</button>
+</nav>
 
 <!-- CENTRAL -->
 <section id="central">
   <h2>¿Qué es una central de ciclo combinado?</h2>
   <p>
-    Una central de ciclo combinado produce electricidad utilizando
-    <strong>una turbina de gas y una turbina de vapor</strong>.
+    Una central de ciclo combinado es una instalación industrial diseñada
+    para producir electricidad de forma eficiente utilizando gas natural
+    como combustible principal.
+  </p>
+  <p>
+    La clave del ciclo combinado es que aprovecha dos veces la energía del gas:
   </p>
   <ul>
-    <li>La turbina de gas quema combustible y genera energía.</li>
-    <li>Los gases calientes calientan una caldera de recuperación (HRSG).</li>
-    <li>El vapor mueve una turbina de vapor, aumentando el rendimiento.</li>
+    <li>Primero en la turbina de gas</li>
+    <li>Después en la turbina de vapor</li>
   </ul>
-  <p>
-    El operador debe comprender que la unidad funciona como un
-    <strong>sistema integrado</strong>, no como equipos independientes.
-  </p>
 </section>
-<section id="proceso-completo" class="active">
 
-  <h1>Proceso completo de generación eléctrica</h1>
-  <p>
-    En esta sección se explica <strong>todo el recorrido de la energía</strong>
-    en una central de ciclo combinado, desde que el gas natural entra en la planta
-    hasta que la electricidad generada sale a la red.
-  </p>
-
-  <hr>
-
-  <h2>1. Entrada del gas natural – Estación de Regulación y Medida (ERM)</h2>
-  <p>
-    El gas natural llega a la central desde la red de transporte a alta presión.
-    Antes de poder usarse en la turbina de gas, debe pasar por la
-    <strong>Estación de Regulación y Medida (ERM)</strong>.
-  </p>
-  <p>
-    En la ERM se realizan tres funciones fundamentales:
-  </p>
-  <ul>
-    <li><strong>Regulación de presión</strong>: reduce la presión del gas a un valor seguro y adecuado para los equipos.</li>
-    <li><strong>Filtrado</strong>: elimina partículas sólidas que podrían dañar válvulas, quemadores o inyectores.</li>
-    <li><strong>Medida</strong>: se mide el caudal y la energía suministrada para control y facturación.</li>
-  </ul>
-  <p>
-    Desde la ERM, el gas se envía al sistema de combustible de la turbina de gas.
-  </p>
-
-  <hr>
-
-  <h2>2. Sistema de combustible de la Turbina de Gas</h2>
-  <p>
-    El sistema de combustible adapta el gas natural a las condiciones necesarias
-    para una combustión estable y controlada.
-  </p>
-  <p>
-    Incluye:
-  </p>
-  <ul>
-    <li>Válvulas de aislamiento y seguridad</li>
-    <li>Válvulas de control de caudal</li>
-    <li>Calentadores de gas (si es necesario)</li>
-    <li>Sistemas de purga y detección de fugas</li>
-  </ul>
-  <p>
-    El objetivo es garantizar que el gas llegue a la cámara de combustión
-    con la presión, temperatura y caudal correctos.
-  </p>
-
-  <hr>
-
-  <h2>3. Turbina de Gas (TG)</h2>
-  <p>
-    La turbina de gas es el <strong>primer equipo generador de energía</strong>
-    de la central y el que inicia el proceso.
-  </p>
-
-  <h3>3.1 Compresor</h3>
-  <p>
-    La TG aspira aire del exterior, lo filtra y lo comprime.
-    Este aire comprimido se utilizará para la combustión.
-  </p>
-
-  <h3>3.2 Cámara de combustión</h3>
-  <p>
-    El gas natural se mezcla con el aire comprimido y se quema.
-    La combustión genera gases a muy alta temperatura y presión.
-  </p>
-
-  <h3>3.3 Turbina</h3>
-  <p>
-    Los gases calientes se expanden a través de los álabes de la turbina,
-    haciendo girar el eje común que mueve:
-  </p>
-  <ul>
-    <li>el compresor</li>
-    <li>el generador eléctrico</li>
-  </ul>
-
-  <p>
-    En este punto ya se produce electricidad, pero además se genera
-    una gran cantidad de calor en los gases de escape.
-  </p>
-
-  <hr>
-
-  <h2>4. Generador eléctrico</h2>
-  <p>
-    El generador transforma la energía mecánica del eje en
-    <strong>energía eléctrica</strong>.
-  </p>
-  <p>
-    Para funcionar correctamente necesita:
-  </p>
-  <ul>
-    <li>Sistema de excitación</li>
-    <li>Sistema de refrigeración (hidrógeno, aire o agua)</li>
-    <li>Sistemas de sellado</li>
-  </ul>
-  <p>
-    La electricidad generada aún no se envía directamente a la red:
-    primero debe adaptarse su tensión y pasar por protecciones.
-  </p>
-
-  <hr>
-
-  <h2>5. Gases de escape y Caldera de Recuperación (HRSG)</h2>
-  <p>
-    Los gases de escape de la turbina de gas salen todavía a alta temperatura.
-    En lugar de desperdiciarlos, se dirigen a la
-    <strong>Caldera de Recuperación (HRSG)</strong>.
-  </p>
-  <p>
-    En la HRSG, el calor de los gases se utiliza para:
-  </p>
-  <ul>
-    <li>Calentar agua</li>
-    <li>Generar vapor</li>
-  </ul>
-
-  <p>
-    Normalmente se producen varios niveles de vapor:
-  </p>
-  <ul>
-    <li>Alta Presión (AP)</li>
-    <li>Media Presión (MP)</li>
-    <li>Baja Presión (BP)</li>
-  </ul>
-
-  <p>
-    Durante el arranque, la HRSG debe calentarse de forma progresiva
-    para evitar daños por estrés térmico.
-  </p>
-
-  <hr>
-
-  <h2>6. Ciclo agua–vapor</h2>
-  <p>
-    El agua utilizada en la HRSG proviene del sistema de condensado
-    y del tanque de agua desmineralizada.
-  </p>
-  <p>
-    La calidad del agua es crítica, ya que:
-  </p>
-  <ul>
-    <li>Protege tuberías</li>
-    <li>Evita corrosión</li>
-    <li>Protege la turbina de vapor</li>
-  </ul>
-
-  <hr>
-
-  <h2>7. Turbina de Vapor (TV)</h2>
-  <p>
-    La turbina de vapor convierte la energía del vapor generado en la HRSG
-    en energía mecánica adicional.
-  </p>
-  <p>
-    <strong>No arranca hasta que:</strong>
-  </p>
-  <ul>
-    <li>Existe vacío en el condensador</li>
-    <li>Hay vapor de sellos</li>
-    <li>Las temperaturas están dentro de límites</li>
-  </ul>
-  <p>
-    De esta forma se protege mecánica y térmicamente la máquina.
-  </p>
-
-  <hr>
-
-  <h2>8. Condensador</h2>
-  <p>
-    El vapor que sale de la turbina de vapor se dirige al
-    <strong>condensador</strong>.
-  </p>
-  <p>
-    Allí se enfría con agua de circulación y se transforma nuevamente en agua líquida.
-  </p>
-  <p>
-    El condensador permite:
-  </p>
-  <ul>
-    <li>Cerrar el ciclo agua–vapor</li>
-    <li>Crear vacío</li>
-    <li>Mejorar el rendimiento de la turbina de vapor</li>
-  </ul>
-
-  <hr>
-
-  <h2>9. Transformadores y salida de electricidad a la red</h2>
-  <p>
-    La electricidad generada por el generador se eleva de tensión
-    mediante transformadores.
-  </p>
-  <p>
-    Posteriormente pasa por:
-  </p>
-  <ul>
-    <li>Sistemas de protección</li>
-    <li>Interruptores</li>
-    <li>Subestación</li>
-  </ul>
-  <p>
-    Finalmente, la energía se inyecta en la red eléctrica,
-    donde será distribuida a los consumidores.
-  </p>
-
-  <hr>
-
-  <h2>10. Idea clave para el operador</h2>
-  <p>
-    La central funciona como una <strong>cadena completa</strong>.
-    Si un eslabón falla, todo el proceso se ve afectado.
-  </p>
-  <p>
-    El trabajo del operador no es solo vigilar pantallas,
-    sino <strong>entender el proceso completo de principio a fin</strong>.
-  </p>
-
-</section>
 <!-- SISTEMAS -->
 <section id="sistemas">
-  <h2>Sistemas y equipos principales</h2>
+  <h2>Sistemas y equipos (explicación completa)</h2>
 
   <details>
-    <summary>Turbina de Gas (TG)</summary>
-    Produce energía mecánica a partir de la combustión del gas.
+    <summary><strong>ERM – Estación de Regulación y Medida</strong></summary>
+    <p>
+      Es el punto de entrada del gas natural a la central. Reduce la presión,
+      filtra impurezas y mide el consumo de gas.
+    </p>
   </details>
 
   <details>
-    <summary>Caldera de Recuperación (HRSG)</summary>
-    Aprovecha los gases de escape para generar vapor.
+    <summary><strong>Sistema de combustible</strong></summary>
+    <p>
+      Conduce el gas desde la ERM hasta la TG mediante válvulas de control
+      y seguridad, asegurando una combustión estable.
+    </p>
   </details>
 
   <details>
-    <summary>Turbina de Vapor (TV)</summary>
-    Convierte la energía del vapor en potencia adicional.
+    <summary><strong>Turbina de Gas (TG)</strong></summary>
+    <p>
+      Convierte la energía química del gas en energía mecánica usando
+      aire comprimido y combustión a alta temperatura.
+    </p>
   </details>
 
   <details>
-    <summary>Condensador</summary>
-    Condensa el vapor y permite cerrar el ciclo agua-vapor.
+    <summary><strong>Generador eléctrico</strong></summary>
+    <p>
+      Convierte la energía mecánica del eje común en electricidad.
+    </p>
   </details>
 
   <details>
-    <summary>Sistemas eléctricos</summary>
-    Red, transformadores, barras de 6,6 kV, LCI y excitación.
+    <summary><strong>HRSG – Caldera de recuperación</strong></summary>
+    <p>
+      Aprovecha el calor de los gases de escape para producir vapor
+      de alta, media y baja presión.
+    </p>
   </details>
 
   <details>
-    <summary>Sistemas auxiliares</summary>
-    Aire comprimido, HVAC, agua de mar, protección contra incendios.
+    <summary><strong>Turbina de Vapor (TV)</strong></summary>
+    <p>
+      Utiliza la energía del vapor para producir potencia adicional.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>Condensador y torres</strong></summary>
+    <p>
+      Condensan el vapor y crean vacío para mejorar el rendimiento
+      de la turbina de vapor.
+    </p>
   </details>
 </section>
 
-<!-- ================= SISTEMAS ================= -->
-<section id="sistemas">
-
-  <h2>Sistemas y equipos de la central</h2>
-  <p>
-    En esta sección se explican todos los sistemas principales de la central,
-    desde la llegada del combustible hasta la generación de electricidad.
-    El operador debe entender cada sistema de forma individual antes de
-    comprender el funcionamiento global.
-  </p>
-
-  <details>
-    <summary><strong>1. Estación de Regulación y Medida de Gas (ERM)</strong></summary>
-    <p>
-      El gas natural llega a la central desde la red de transporte a muy alta presión.
-      Antes de utilizarlo, debe pasar por la ERM.
-    </p>
-    <ul>
-      <li>Reduce la presión del gas a valores seguros</li>
-      <li>Filtra partículas sólidas</li>
-      <li>Mide caudal y energía para control y facturación</li>
-    </ul>
-    <p>
-      Sin una ERM operativa, la turbina de gas no puede recibir combustible.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>2. Sistema de combustible de la Turbina de Gas</strong></summary>
-    <p>
-      Conduce el gas desde la ERM hasta la cámara de combustión.
-      Incluye válvulas de aislamiento, válvulas de control,
-      calentadores de gas y sistemas de seguridad.
-    </p>
-    <p>
-      Su objetivo es garantizar una combustión estable,
-      controlada y segura en todo momento.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>3. Turbina de Gas (TG)</strong></summary>
-    <p>
-      Es el equipo que inicia la producción de energía.
-      Convierte la energía química del gas en energía mecánica.
-    </p>
-    <p><strong>Partes principales:</strong></p>
-    <ul>
-      <li>Compresor: aspira y comprime aire</li>
-      <li>Cámara de combustión: quema gas con aire</li>
-      <li>Turbina: extrae energía de los gases calientes</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary><strong>4. Generador eléctrico</strong></summary>
-    <p>
-      Convierte la energía mecánica del eje de la turbina
-      en energía eléctrica.
-    </p>
-    <p>
-      Necesita sistemas auxiliares como excitación,
-      refrigeración y sellado.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>5. Caldera de Recuperación (HRSG)</strong></summary>
-    <p>
-      Aprovecha el calor de los gases de escape de la TG
-      para producir vapor.
-    </p>
-    <p>
-      Genera vapor de alta, media y baja presión,
-      sin necesidad de quemar combustible adicional.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>6. Sistema agua–vapor</strong></summary>
-    <p>
-      Incluye condensador, bombas de condensado,
-      calderines y sistemas de tratamiento.
-    </p>
-    <p>
-      Su misión es cerrar el ciclo del agua y
-      suministrar vapor limpio a la turbina de vapor.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>7. Turbina de Vapor (TV)</strong></summary>
-    <p>
-      Convierte la energía del vapor en energía mecánica adicional.
-      Solo puede entrar en servicio cuando hay vacío
-      y vapor de sellos.
-    </p>
-  </details>
-
-  <details>
-    <summary><strong>8. Condensador y torres de refrigeración</strong></summary>
-    <p>
-      Enfrían el vapor de escape de la TV,
-      permitiendo recuperar el agua y crear vacío.
-    </p>
-  </details>
-
-</section>
-
-<!-- ================= FUNCIONAMIENTO ================= -->
+<!-- FUNCIONAMIENTO -->
 <section id="funcionamiento">
-
-  <h2>Funcionamiento global de la central</h2>
+  <h2>Funcionamiento integrado de la central</h2>
   <p>
-    Aquí se explica cómo se relacionan todos los sistemas entre sí
-    y por qué la central funciona como una única unidad integrada.
+    Todos los sistemas están conectados formando una cadena continua:
   </p>
-
-  <h3>1. Cadena energética</h3>
   <ol>
-    <li>El gas entra por la ERM</li>
-    <li>Alimenta la turbina de gas</li>
+    <li>Gas entra por la ERM</li>
+    <li>Alimenta la TG</li>
     <li>La TG produce energía mecánica</li>
     <li>El generador produce electricidad</li>
-    <li>Los gases calientes alimentan la HRSG</li>
+    <li>Los gases calientan la HRSG</li>
     <li>La HRSG produce vapor</li>
-    <li>El vapor mueve la turbina de vapor</li>
-    <li>El vapor se condensa y se reutiliza</li>
+    <li>El vapor mueve la TV</li>
+    <li>El vapor se condensa y vuelve al ciclo</li>
   </ol>
-
-  <h3>2. Dependencia entre sistemas</h3>
-  <p>
-    Ningún sistema trabaja de forma aislada:
-  </p>
-  <ul>
-    <li>Sin gas no hay TG</li>
-    <li>Sin TG no hay HRSG</li>
-    <li>Sin HRSG no hay vapor</li>
-    <li>Sin vacío no hay TV</li>
-    <li>Sin agua no hay ciclo</li>
-  </ul>
-
-  <p>
-    El operador debe pensar siempre en términos de
-    <strong>causa y efecto</strong>.
-  </p>
-
 </section>
 
-<!-- ================= ARRANQUE ================= -->
+<!-- ARRANQUE -->
 <section id="arranque">
+  <h2>Arranque completo de la unidad</h2>
 
-  <h2>Guía completa de arranque de la unidad</h2>
+  <h3>1. Preparación</h3>
+  <p>Verificación de electricidad, aire, agua y protecciones.</p>
 
-  <h3>1. Preparación previa</h3>
-  <p>
-    Antes de cualquier arranque se verifican
-    todos los sistemas auxiliares:
-  </p>
-  <ul>
-    <li>Electricidad estable</li>
-    <li>Aire comprimido</li>
-    <li>Agua de refrigeración</li>
-    <li>Protecciones activas</li>
-  </ul>
+  <h3>2. Preparación ciclo agua-vapor</h3>
+  <p>Llenado, purgas y caldera auxiliar.</p>
 
-  <h3>2. Preparación del ciclo agua–vapor</h3>
-  <p>
-    Se llenan sistemas, se purga aire,
-    se prepara el condensador
-    y se arranca la caldera auxiliar.
-  </p>
+  <h3>3. Creación de vacío</h3>
+  <p>Vapor de sellos y bombas de vacío.</p>
 
-  <h3>3. Creación de vacío y sellos</h3>
-  <p>
-    El vapor auxiliar alimenta los sellos
-    y se ponen en marcha las bombas de vacío.
-  </p>
+  <h3>4. GT Ready</h3>
+  <p>La turbina de gas está lista.</p>
 
-  <h3>4. GT Ready to Start</h3>
-  <p>
-    Indica que la TG está preparada:
-    gas, aire, aceite, electricidad y control correctos.
-  </p>
+  <h3>5. Arranque TG</h3>
+  <p>LCI, encendido, aceleración y sincronización.</p>
 
-  <h3>5. Arranque de la Turbina de Gas</h3>
-  <p>
-    Se ejecuta la autosecuencia:
-  </p>
-  <ul>
-    <li>Giro con LCI</li>
-    <li>Encendido</li>
-    <li>Aceleración controlada</li>
-    <li>Sincronización</li>
-  </ul>
+  <h3>6. Calentamiento HRSG</h3>
+  <p>Calentamiento progresivo.</p>
 
-  <h3>6. Calentamiento de la HRSG</h3>
-  <p>
-    Los gases de escape calientan la caldera
-    lentamente para evitar estrés térmico.
-  </p>
+  <h3>7. ST Ready</h3>
+  <p>TV preparada para entrar.</p>
 
-  <h3>7. ST Ready to Start</h3>
-  <p>
-    Confirma que la turbina de vapor
-    está lista para integrarse.
-  </p>
-
-  <h3>8. Entrada de la Turbina de Vapor</h3>
-  <p>
-    Se introduce vapor progresivamente,
-    aumentando potencia y eficiencia.
-  </p>
-
-  <h3>9. Estabilización y mínimo técnico</h3>
-  <p>
-    La unidad se estabiliza y queda
-    disponible para operación normal.
-  </p>
-
+  <h3>8. Entrada TV y estabilización</h3>
+  <p>Aumento de potencia hasta mínimo técnico.</p>
 </section>
+
 <!-- EXAMEN -->
 <section id="examen">
-
-  <h2>Examen práctico – Operador de Central de Ciclo Combinado</h2>
-  <p>
-    Examen tipo test de 20 preguntas.  
-    Cada pregunta tiene una sola respuesta correcta.  
-    <strong>Resultado mínimo para APTO: 80 %</strong>
-  </p>
-
-  <form id="quiz">
-
-    <!-- PREGUNTA 1 -->
-    <p><strong>1. ¿Dónde entra el gas natural a la central?</strong></p>
-    <input type="radio" name="q1" value="0"> En la cámara de combustión<br>
-    <input type="radio" name="q1" value="1"> En la Estación de Regulación y Medida (ERM)<br>
-    <input type="radio" name="q1" value="0"> En el generador<br><br>
-
-    <!-- PREGUNTA 2 -->
-    <p><strong>2. Función principal de la ERM:</strong></p>
-    <input type="radio" name="q2" value="0"> Generar vapor<br>
-    <input type="radio" name="q2" value="1"> Regular presión, filtrar y medir gas<br>
-    <input type="radio" name="q2" value="0"> Refrigerar la turbina<br><br>
-
-    <!-- PREGUNTA 3 -->
-    <p><strong>3. ¿Qué equipo inicia siempre el arranque?</strong></p>
-    <input type="radio" name="q3" value="1"> Turbina de Gas<br>
-    <input type="radio" name="q3" value="0"> Turbina de Vapor<br>
-    <input type="radio" name="q3" value="0"> Condensador<br><br>
-
-    <!-- PREGUNTA 4 -->
-    <p><strong>4. Función del compresor en la TG:</strong></p>
-    <input type="radio" name="q4" value="1"> Comprimir el aire para la combustión<br>
-    <input type="radio" name="q4" value="0"> Generar electricidad<br>
-    <input type="radio" name="q4" value="0"> Condensar vapor<br><br>
-
-    <!-- PREGUNTA 5 -->
-    <p><strong>5. ¿Qué hace la cámara de combustión?</strong></p>
-    <input type="radio" name="q5" value="1"> Quema gas con aire comprimido<br>
-    <input type="radio" name="q5" value="0"> Enfría los gases<br>
-    <input type="radio" name="q5" value="0"> Produce vacío<br><br>
-
-    <!-- PREGUNTA 6 -->
-    <p><strong>6. Los gases de escape se aprovechan en:</strong></p>
-    <input type="radio" name="q6" value="0"> El condensador<br>
-    <input type="radio" name="q6" value="1"> La HRSG<br>
-    <input type="radio" name="q6" value="0"> El transformador<br><br>
-
-    <!-- PREGUNTA 7 -->
-    <p><strong>7. Función principal de la HRSG:</strong></p>
-    <input type="radio" name="q7" value="1"> Generar vapor con gases de escape<br>
-    <input type="radio" name="q7" value="0"> Quemar combustible<br>
-    <input type="radio" name="q7" value="0"> Generar vacío<br><br>
-
-    <!-- PREGUNTA 8 -->
-    <p><strong>8. ¿Por qué no se calienta la HRSG bruscamente?</strong></p>
-    <input type="radio" name="q8" value="1"> Para evitar estrés térmico<br>
-    <input type="radio" name="q8" value="0"> Para ahorrar combustible<br>
-    <input type="radio" name="q8" value="0"> Por normativa eléctrica<br><br>
-
-    <!-- PREGUNTA 9 -->
-    <p><strong>9. ¿Qué convierte energía mecánica en eléctrica?</strong></p>
-    <input type="radio" name="q9" value="1"> Generador<br>
-    <input type="radio" name="q9" value="0"> Transformador<br>
-
+  <h2>Examen tipo test</h2>
+  <p>Apto a partir del 80 %.</p>
+</section>
 
 <footer>
   Formación Operador – Central de Ciclo Combinado
