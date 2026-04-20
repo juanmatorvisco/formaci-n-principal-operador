@@ -1,453 +1,473 @@
-perar<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operador Central Plana del Vent</title>
-    <style>
-        :root { 
-            --primary: #0a2463; --secondary: #3e92cc; --accent: #d8315b;
-            --success: #27ae60; --warning: #f39c12; --bg: #f4f7f9; 
-        }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; line-height: 1.6; color: #1e1e1e; }
-        header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--secondary); }
-        nav { display: flex; justify-content: center; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav button { background: none; border: none; padding: 15px 25px; cursor: pointer; font-weight: bold; color: var(--primary); font-size: 1rem; }
-        nav button.active { border-bottom: 4px solid var(--secondary); color: var(--secondary); }
-        
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: none; }
-        .card.active { display: block; }
-        
-        .modulo { border-left: 6px solid var(--secondary); background: #f8fbff; padding: 25px; margin-bottom: 30px; border-radius: 0 10px 10px 0; }
-        .tech-box { background: #fff; border: 1px solid #e1e8ed; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--warning); }
-        
-        h2 { color: var(--primary); font-size: 1.8rem; margin-top: 0; }
-        h3 { color: var(--secondary); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
-        
-        .danger-zone { border-left-color: var(--accent); background: #fff5f6; }
-        
-        /* Estilos Examen */
-        .opcion { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: left; background: white; font-size: 1rem; transition: 0.3s; }
-        .opcion:hover { background: #eef6ff; border-color: var(--secondary); }
-        .btn-check { background: var(--success); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1.1rem; margin-top: 20px; }
-    </style>
+<meta charset="UTF-8">
+<title>Formación Operador – Central de Ciclo Combinado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  line-height: 1.6;
+}
+
+header {
+  background: #1f3a5f;
+  color: white;
+  padding: 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+nav {
+  background: #2c4e7a;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+nav button:hover {
+  background: #1f3a5f;
+}
+
+section {
+  display: none;
+  padding: 20px;
+}
+
+section.active {
+  display: block;
+}
+
+h2 {
+  color: #1f3a5f;
+}
+
+details {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #1f3a5f;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1f3a5f;
+  color: white;
+  margin-top: 40px;
+}
+
+.question {
+  margin-bottom: 15px;
+}
+
+</style>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
 </head>
+
 <body>
 
 <header>
-    <h1>ENCICLOPEDIA TÉCNICA DE OPERACIÓN</h1>
-    <p>Manual operación para Ciclos Combinados - Tecnología Plana del Vent</p>
+  <h1>Formación Operador – Central de Ciclo Combinado</h1>
 </header>
 
 <nav>
-    <button onclick="showTab('inicio')" id="btn-inicio" class="active">INICIO</button>
-    <button onclick="showTab('leccion')" id="btn-leccion">MANUAL TÉCNICO</button>
-    <button onclick="showTab('GUIA Arranque')" id="btn-leccion">GUIA ARRANQUE</button>
-    <button onclick="showTab('examen')" id="btn-examen">EXAMEN </button>
+  <button onclick="showSection('inicio')">Inicio</button>
+  <button onclick="showSection('central')">La Central</button>
+  <button onclick="showSection('sistemas')">Sistemas</button>
+  <button onclick="showSection('funcionamiento')">Funcionamiento</button>
+  <button onclick="showSection('arranque')">Guía de Arranque</button>
+  <button onclick="showSection('examen')">Examen</button>
 </nav>
 
-<div class="container">
-
-    <div id="inicio" class="card active">
-        <h2 style="text-align: center;">Inducción Operativa de Planta</h2>
-        <p>Este sistema interactivo desglosa la física y los protocolos de una central de última generación. Como operador, tu objetivo es entender la interacción entre el Ciclo Brayton (Gas) y el Ciclo Rankine (Vapor).</p>
-        <div class="tech-box">
-            <p><strong>Configuración:</strong> Ciclo Combinado mono-eje.</p>
-            <p><strong>Objetivo Técnico:</strong> Poder OPERAR la cctt PdV con la maxima eficiencia y seguridad</p>
-        </div>
-        <button class="btn-check" style="background: var(--primary);" onclick="showTab('leccion')">EXPLORAR MANUAL </button>
-    </div>
-ra<section id="guia-arranque">
-</section>
-``<section id="guia-arranque">
-
-  <h1>Guía formativa de arranque de unidad</h1>
-  <p><strong>Central CTCC Plana del Vent</strong></p>
+<!-- INICIO -->
+<section id="inicio" class="active">
+  <h2>Bienvenido</h2>
   <p>
-    Documento formativo para operadores.  
-    Esta guía explica el proceso completo de arranque desde un punto de vista
-    operativo y formativo. No sustituye al IT oficial.
+    Esta aplicación web está diseñada para la <strong>formación de operadores
+    de centrales de ciclo combinado</strong>. Aquí encontrarás explicaciones
+    técnicas, visión operativa y una guía de arranque estructurada.
+  </p>
+</section>
+
+<!-- CENTRAL -->
+<section id="central">
+  <h2>¿Qué es una central de ciclo combinado?</h2>
+  <p>
+    Una central de ciclo combinado produce electricidad utilizando
+    <strong>una turbina de gas y una turbina de vapor</strong>.
+  </p>
+  <ul>
+    <li>La turbina de gas quema combustible y genera energía.</li>
+    <li>Los gases calientes calientan una caldera de recuperación (HRSG).</li>
+    <li>El vapor mueve una turbina de vapor, aumentando el rendimiento.</li>
+  </ul>
+  <p>
+    El operador debe comprender que la unidad funciona como un
+    <strong>sistema integrado</strong>, no como equipos independientes.
+  </p>
+</section>
+<section id="proceso-completo" class="active">
+
+  <h1>Proceso completo de generación eléctrica</h1>
+  <p>
+    En esta sección se explica <strong>todo el recorrido de la energía</strong>
+    en una central de ciclo combinado, desde que el gas natural entra en la planta
+    hasta que la electricidad generada sale a la red.
   </p>
 
   <hr>
 
-  <h2>1. Concepto general del arranque</h2>
+  <h2>1. Entrada del gas natural – Estación de Regulación y Medida (ERM)</h2>
   <p>
-    El arranque de una unidad de ciclo combinado no es una única maniobra, sino un
-    proceso progresivo y controlado. La turbina de gas inicia el proceso, la caldera
-    de recuperación aprovecha el calor de los gases de escape y la turbina de vapor
-    se integra cuando las condiciones térmicas son adecuadas.
+    El gas natural llega a la central desde la red de transporte a alta presión.
+    Antes de poder usarse en la turbina de gas, debe pasar por la
+    <strong>Estación de Regulación y Medida (ERM)</strong>.
   </p>
   <p>
-    El operador no “arranca máquinas”, sino que prepara sistemas, valida condiciones
-    y supervisa la secuencia automática.
+    En la ERM se realizan tres funciones fundamentales:
+  </p>
+  <ul>
+    <li><strong>Regulación de presión</strong>: reduce la presión del gas a un valor seguro y adecuado para los equipos.</li>
+    <li><strong>Filtrado</strong>: elimina partículas sólidas que podrían dañar válvulas, quemadores o inyectores.</li>
+    <li><strong>Medida</strong>: se mide el caudal y la energía suministrada para control y facturación.</li>
+  </ul>
+  <p>
+    Desde la ERM, el gas se envía al sistema de combustible de la turbina de gas.
   </p>
 
-  <h2>2. Fases del proceso de arranque</h2>
+  <hr>
+
+  <h2>2. Sistema de combustible de la Turbina de Gas</h2>
+  <p>
+    El sistema de combustible adapta el gas natural a las condiciones necesarias
+    para una combustión estable y controlada.
+  </p>
+  <p>
+    Incluye:
+  </p>
+  <ul>
+    <li>Válvulas de aislamiento y seguridad</li>
+    <li>Válvulas de control de caudal</li>
+    <li>Calentadores de gas (si es necesario)</li>
+    <li>Sistemas de purga y detección de fugas</li>
+  </ul>
+  <p>
+    El objetivo es garantizar que el gas llegue a la cámara de combustión
+    con la presión, temperatura y caudal correctos.
+  </p>
+
+  <hr>
+
+  <h2>3. Turbina de Gas (TG)</h2>
+  <p>
+    La turbina de gas es el <strong>primer equipo generador de energía</strong>
+    de la central y el que inicia el proceso.
+  </p>
+
+  <h3>3.1 Compresor</h3>
+  <p>
+    La TG aspira aire del exterior, lo filtra y lo comprime.
+    Este aire comprimido se utilizará para la combustión.
+  </p>
+
+  <h3>3.2 Cámara de combustión</h3>
+  <p>
+    El gas natural se mezcla con el aire comprimido y se quema.
+    La combustión genera gases a muy alta temperatura y presión.
+  </p>
+
+  <h3>3.3 Turbina</h3>
+  <p>
+    Los gases calientes se expanden a través de los álabes de la turbina,
+    haciendo girar el eje común que mueve:
+  </p>
+  <ul>
+    <li>el compresor</li>
+    <li>el generador eléctrico</li>
+  </ul>
+
+  <p>
+    En este punto ya se produce electricidad, pero además se genera
+    una gran cantidad de calor en los gases de escape.
+  </p>
+
+  <hr>
+
+  <h2>4. Generador eléctrico</h2>
+  <p>
+    El generador transforma la energía mecánica del eje en
+    <strong>energía eléctrica</strong>.
+  </p>
+  <p>
+    Para funcionar correctamente necesita:
+  </p>
+  <ul>
+    <li>Sistema de excitación</li>
+    <li>Sistema de refrigeración (hidrógeno, aire o agua)</li>
+    <li>Sistemas de sellado</li>
+  </ul>
+  <p>
+    La electricidad generada aún no se envía directamente a la red:
+    primero debe adaptarse su tensión y pasar por protecciones.
+  </p>
+
+  <hr>
+
+  <h2>5. Gases de escape y Caldera de Recuperación (HRSG)</h2>
+  <p>
+    Los gases de escape de la turbina de gas salen todavía a alta temperatura.
+    En lugar de desperdiciarlos, se dirigen a la
+    <strong>Caldera de Recuperación (HRSG)</strong>.
+  </p>
+  <p>
+    En la HRSG, el calor de los gases se utiliza para:
+  </p>
+  <ul>
+    <li>Calentar agua</li>
+    <li>Generar vapor</li>
+  </ul>
+
+  <p>
+    Normalmente se producen varios niveles de vapor:
+  </p>
+  <ul>
+    <li>Alta Presión (AP)</li>
+    <li>Media Presión (MP)</li>
+    <li>Baja Presión (BP)</li>
+  </ul>
+
+  <p>
+    Durante el arranque, la HRSG debe calentarse de forma progresiva
+    para evitar daños por estrés térmico.
+  </p>
+
+  <hr>
+
+  <h2>6. Ciclo agua–vapor</h2>
+  <p>
+    El agua utilizada en la HRSG proviene del sistema de condensado
+    y del tanque de agua desmineralizada.
+  </p>
+  <p>
+    La calidad del agua es crítica, ya que:
+  </p>
+  <ul>
+    <li>Protege tuberías</li>
+    <li>Evita corrosión</li>
+    <li>Protege la turbina de vapor</li>
+  </ul>
+
+  <hr>
+
+  <h2>7. Turbina de Vapor (TV)</h2>
+  <p>
+    La turbina de vapor convierte la energía del vapor generado en la HRSG
+    en energía mecánica adicional.
+  </p>
+  <p>
+    <strong>No arranca hasta que:</strong>
+  </p>
+  <ul>
+    <li>Existe vacío en el condensador</li>
+    <li>Hay vapor de sellos</li>
+    <li>Las temperaturas están dentro de límites</li>
+  </ul>
+  <p>
+    De esta forma se protege mecánica y térmicamente la máquina.
+  </p>
+
+  <hr>
+
+  <h2>8. Condensador</h2>
+  <p>
+    El vapor que sale de la turbina de vapor se dirige al
+    <strong>condensador</strong>.
+  </p>
+  <p>
+    Allí se enfría con agua de circulación y se transforma nuevamente en agua líquida.
+  </p>
+  <p>
+    El condensador permite:
+  </p>
+  <ul>
+    <li>Cerrar el ciclo agua–vapor</li>
+    <li>Crear vacío</li>
+    <li>Mejorar el rendimiento de la turbina de vapor</li>
+  </ul>
+
+  <hr>
+
+  <h2>9. Transformadores y salida de electricidad a la red</h2>
+  <p>
+    La electricidad generada por el generador se eleva de tensión
+    mediante transformadores.
+  </p>
+  <p>
+    Posteriormente pasa por:
+  </p>
+  <ul>
+    <li>Sistemas de protección</li>
+    <li>Interruptores</li>
+    <li>Subestación</li>
+  </ul>
+  <p>
+    Finalmente, la energía se inyecta en la red eléctrica,
+    donde será distribuida a los consumidores.
+  </p>
+
+  <hr>
+
+  <h2>10. Idea clave para el operador</h2>
+  <p>
+    La central funciona como una <strong>cadena completa</strong>.
+    Si un eslabón falla, todo el proceso se ve afectado.
+  </p>
+  <p>
+    El trabajo del operador no es solo vigilar pantallas,
+    sino <strong>entender el proceso completo de principio a fin</strong>.
+  </p>
+
+</section>
+<!-- SISTEMAS -->
+<section id="sistemas">
+  <h2>Sistemas y equipos principales</h2>
+
+  <details>
+    <summary>Turbina de Gas (TG)</summary>
+    Produce energía mecánica a partir de la combustión del gas.
+  </details>
+
+  <details>
+    <summary>Caldera de Recuperación (HRSG)</summary>
+    Aprovecha los gases de escape para generar vapor.
+  </details>
+
+  <details>
+    <summary>Turbina de Vapor (TV)</summary>
+    Convierte la energía del vapor en potencia adicional.
+  </details>
+
+  <details>
+    <summary>Condensador</summary>
+    Condensa el vapor y permite cerrar el ciclo agua-vapor.
+  </details>
+
+  <details>
+    <summary>Sistemas eléctricos</summary>
+    Red, transformadores, barras de 6,6 kV, LCI y excitación.
+  </details>
+
+  <details>
+    <summary>Sistemas auxiliares</summary>
+    Aire comprimido, HVAC, agua de mar, protección contra incendios.
+  </details>
+</section>
+
+<!-- FUNCIONAMIENTO -->
+<section id="funcionamiento">
+  <h2>Funcionamiento general de la unidad</h2>
+  <p>
+    La unidad opera de forma automática, pero requiere
+    <strong>supervisión activa del operador</strong>.
+  </p>
   <ol>
-    <li>Verificación de condiciones previas</li>
-    <li>Preparación de servicios generales y auxiliares</li>
-    <li>Preparación del ciclo agua-vapor</li>
-    <li>Obtención de GT Ready to Start</li>
-    <li>Obtención de ST Ready to Start</li>
-    <li>Ejecución de la autosecuencia</li>
-    <li>Integración de la turbina de vapor</li>
-    <li>Entrada en carga y estabilización</li>
+    <li>La TG genera potencia inicial.</li>
+    <li>La HRSG produce vapor.</li>
+    <li>La TV se integra cuando hay condiciones térmicas.</li>
+    <li>La carga se incrementa de forma progresiva.</li>
   </ol>
-
-  <hr>
-
-  <h2>3. Condiciones previas al arranque</h2>
-
-  <h3>3.1 Importancia de las condiciones previas</h3>
-  <p>
-    La mayoría de problemas durante los arranques se originan antes de iniciar la
-    autosecuencia. Una preparación incompleta provoca alarmas, bloqueos o disparos.
-  </p>
-  <p>
-    Un arranque bien preparado es más seguro, más rápido y menos estresante para
-    los equipos.
-  </p>
-
-  <h3>3.2 Suministro eléctrico</h3>
-  <p>
-    Durante el arranque, especialmente con el arrancador estático (LCI), la demanda
-    eléctrica aumenta de forma significativa.
-  </p>
-  <ul>
-    <li>La red MAT debe estar correctamente alineada.</li>
-    <li>La barra de 6,6 kV debe ser estable.</li>
-    <li>El LCI debe estar disponible y sin fallos.</li>
-    <li>Los sistemas de corriente continua deben estar operativos.</li>
-    <li>El grupo diésel debe estar disponible en automático.</li>
-  </ul>
-  <p>
-    Una caída de tensión en esta fase puede provocar el disparo del LCI o el fallo
-    del arranque de la turbina de gas.
-  </p>
-
-  <h3>3.3 Servicios generales</h3>
-
-  <h4>Aire comprimido</h4>
-  <p>
-    El aire comprimido es indispensable para el accionamiento de válvulas,
-    purgas y actuadores. Una presión insuficiente bloquea automáticamente
-    muchas maniobras.
-  </p>
-
-  <h4>HVAC y ventilación</h4>
-  <p>
-    La ventilación protege equipos eléctricos, electrónicos y el generador.
-    Altas temperaturas pueden generar enclavamientos durante el arranque.
-  </p>
-
-  <h4>Protección contra incendios</h4>
-  <p>
-    Los sistemas de protección contra incendios deben estar armados y disponibles
-    antes de arrancar la unidad.
-  </p>
-
-  <hr>
-
-  <h2>4. Sistemas de agua y refrigeración</h2>
-
-  <h3>4.1 Agua de mar y torres</h3>
-  <p>
-    El sistema de agua de mar proporciona la refrigeración necesaria para las
-    torres y el condensador.
-  </p>
-  <p>
-    Problemas en este sistema repercuten más adelante en el vacío y en la turbina
-    de vapor.
-  </p>
-
-  <h3>4.2 Circuito abierto y circuito cerrado</h3>
-  <p>
-    El circuito abierto evacúa la mayor parte del calor del proceso, mientras
-    que el circuito cerrado protege equipos sensibles.
-  </p>
-  <p>
-    El operador debe aprender a relacionar presión, caudal y temperatura, y
-    reconocer síntomas de cavitación o desalineación.
-  </p>
-
-  <hr>
-
-  <h2>5. Ciclo agua-vapor y condensador</h2>
-
-  <h3>5.1 Condensador</h3>
-  <p>
-    El condensador es el punto más bajo del ciclo agua-vapor. Debe estar lleno
-    y correctamente desaireado antes de continuar con el arranque.
-  </p>
-  <p>
-    Sin un condensador en condiciones no puede establecerse vacío ni integrarse
-    la turbina de vapor.
-  </p>
-
-  <h3>5.2 Agua desmineralizada y química</h3>
-  <p>
-    La calidad del agua es crítica desde el inicio del arranque. El permisivo
-    químico protege la caldera y la turbina de vapor de daños a medio y largo plazo.
-  </p>
-
-  <hr>
-
-  <h2>6. Caldera auxiliar y vapor auxiliar</h2>
-  <p>
-    La caldera auxiliar proporciona vapor para:
-  </p>
-  <ul>
-    <li>Precalentar equipos</li>
-    <li>Alimentar vapor de sellos</li>
-    <li>Establecer vacío</li>
-    <li>Reducir gradientes térmicos</li>
-  </ul>
-  <p>
-    Debe entenderse como una fase de preparación, no como generación de potencia.
-  </p>
-
-  <hr>
-
-  <h2>7. Sellado y vacío de la turbina de vapor</h2>
-
-  <h3>7.1 Vapor de sellos</h3>
-  <p>
-    El vapor de sellos evita la entrada de aire en la turbina de vapor y protege
-    las juntas. Es imprescindible antes del arranque de la TV.
-  </p>
-
-  <h3>7.2 Vacío del condensador</h3>
-  <p>
-    El vacío se construye de forma progresiva y depende de varios sistemas previos.
-    No debe forzarse nunca el proceso.
-  </p>
-
-  <hr>
-
-  <h2>8. HRSG: calentamiento controlado</h2>
-  <p>
-    Durante el arranque, la caldera de recuperación sufre estrés térmico.
-    Los drenajes y bypasses permiten un calentamiento gradual y seguro.
-  </p>
-
-  <hr>
-
-  <h2>9. ST Ready to Start</h2>
-  <p>
-    El estado ST Ready confirma que la turbina de vapor está preparada:
-  </p>
-  <ul>
-    <li>Virador activo</li>
-    <li>Vapor de sellos disponible</li>
-    <li>Vacío establecido</li>
-    <li>Aceite dentro de rango</li>
-    <li>Expansiones controladas</li>
-    <li>Sin enclavamientos</li>
-  </ul>
-
-  <hr>
-
-  <h2>10. GT Ready to Start</h2>
-  <p>
-    El estado GT Ready indica que la turbina de gas y todos sus sistemas auxiliares
-    están preparados para iniciar la secuencia automática.
-  </p>
-
-  <hr>
-
-  <h2>11. Autosecuencia de arranque</h2>
-  <p>
-    La autosecuencia ejecuta el arranque sin interpretar ni improvisar. El operador
-    debe supervisar activamente velocidades, temperaturas, presiones y alarmas.
-  </p>
-  <p>
-    Comprender las secuencias (20, 21, 22, 26) es clave para anticipar el comportamiento
-    de la unidad.
-  </p>
-
-  <hr>
-
-  <h2>12. Integración de la turbina de vapor y carga</h2>
-  <p>
-    La turbina de vapor se integra una vez la TG está estable. La carga aumenta
-    respetando límites térmicos, estrés mecánico y calidad química.
-  </p>
-
-  <hr>
-
-  <h2>13. Estabilización y cierre del arranque</h2>
-  <p>
-    El arranque se considera completado cuando la unidad está estable, sin alarmas
-    persistentes y disponible para control normal de carga.
-  </p>
-
-  <hr>
-
-  <h2>14. Mensaje final al operador</h2>
-  <p>
-    Un buen operador entiende el proceso, no corre y no fuerza la instalación.
-    Arrancar bien una unidad es resultado de conocimiento, preparación y criterio.
-  </p>
-
 </section>
-``
-    
-  <h1>Guía formativa de arranque de unidad</h1>
+
+<!-- ARRANQUE -->
+<section id="arranque">
+  <h2>Guía formativa de arranque</h2>
+
+  <h3>Condiciones previas</h3>
+  <ul>
+    <li>Red eléctrica alineada</li>
+    <li>Barra 6,6 kV estable</li>
+    <li>Aire comprimido disponible</li>
+    <li>Agua de mar y refrigeración operativas</li>
+  </ul>
+
+  <h3>GT Ready to Start</h3>
+  <p>
+    Indica que la turbina de gas y sus sistemas están preparados
+    para iniciar la secuencia automática.
+  </p>
+
+  <h3>ST Ready to Start</h3>
+  <p>
+    Confirma vacío, vapor de sellos, aceite correcto
+    y expansiones dentro de límites.
+  </p>
+
+  <h3>Autosecuencia</h3>
+  <p>
+    Ejecuta el arranque siguiendo pasos fijos (20, 21, 22, 26),
+    supervisados por el operador.
+  </p>
+
+  <h3>Entrada en carga</h3>
+  <p>
+    La turbina de vapor se integra progresivamente hasta alcanzar
+    el mínimo técnico.
+  </p>
 </section>
-    <div id="leccion" class="card">
-        
-        <div class="modulo">
-            <h2>1. El Camino del Gas y el Aire (Turbina de Gas)</h2>
-            <p>La Turbina de Gas (TG) es el motor primario. Transforma la energía química del Gas Natural en energía cinética.</p>
-            
-            <h3>1.1 Aspiración y Compresor</h3>
-            <p>El aire se aspira y filtra para evitar la erosión de los álabes. En el <u>Compresor Axial</u>, el aire se comprime en unas 18 etapas, elevando su temperatura a más de 400°C por efecto de la compresión. Es crítico vigilar las <strong>IGV (Inlet Guide Vanes)</strong>, que regulan el caudal de aire para evitar el <u>Surge</u> (inestabilidad del flujo).</p>
-            
-            <h3>1.2 Combustión DLN (Dry Low NOx)</h3>
-            <p>El gas natural se inyecta en las cámaras. Se utiliza una mezcla "pobre" de combustible para mantener la temperatura de llama controlada y reducir las emisiones de NOx. Si la llama no es uniforme, se produce un <strong>Spread de temperatura</strong>, lo que pone en riesgo la integridad de los álabes de expansión.</p>
-        </div>
 
-        <div class="modulo" style="border-left-color: var(--success);">
-            <h2>2. La HRSG: Generador de Vapor de Recuperación de Calor</h2>
-            <p>El vapor del HRSG se utiliza luego para impulsar una turbina de vapor, que también genera electricidad. En entornos industriales, los HRSG también pueden encontrarse donde haya necesidad de recuperar calor residual para la producción de vapor.</p>
-            
-            <div class="tech-box">
-                <strong>¿Cuáles son las partes principales de un HRSG?</strong><br>
-                A pesar de su tamaño, tienen relativamente pocas partes. Un HRSG típico tendrá un sistema de vapor de <u>alta presión (HP), presión intermedia (IP) y baja presión (LP)</u>. El flujo maestro es: <strong>Economizador → Tambor de vapor → Evaporador → Sobrecalentador.</strong>
-            </div>
+<!-- EXAMEN -->
+<section id="examen">
+  <h2>Examen práctico (20 preguntas)</h2>
 
-            <h3>2.1 El Flujo de los Componentes</h3>
-            <ul>
-                <li><strong>Economizador:</strong> Precalienta el agua de alimentación. <u>Aumenta la eficiencia</u> al asegurar que el agua entre al tambor ya caliente, eliminando el riesgo de <u>choque térmico</u>.</li>
-                <li><strong>Tambor de Vapor (Drum):</strong> Recipiente donde se <u>separa el vapor seco del agua líquida</u>. El vapor sube al sobrecalentador y el agua baja al evaporador.</li>
-                <li><strong>Evaporador:</strong> Aquí ocurre la producción real de vapor. El agua absorbe calor y cambia de fase. Se genera <u>vapor húmedo</u> que debe ser separado en el tambor.</li>
-                <li><strong>Sobrecalentador:</strong> Añade <u>calor sensible</u> al vapor. Eleva la temperatura hasta unos <u>550°C</u> para que el vapor tenga la energía necesaria para mover la turbina sin condensar en sus primeras etapas.</li>
-            </ul>
-        </div>
+  <form>
+    <div class="question">1. ¿Qué equipo inicia el proceso de arranque?</div>
+    <div class="question">2. ¿Por qué es crítica la barra de 6,6 kV?</div>
+    <div class="question">3. ¿Qué función tiene el LCI?</div>
+    <div class="question">4. ¿Para qué sirve la HRSG?</div>
+    <div class="question">5. ¿Qué indica ST Ready?</div>
+    <div class="question">6. ¿Qué indica GT Ready?</div>
+    <div class="question">7. ¿Qué sistema permite crear vacío?</div>
+    <div class="question">8. ¿Por qué es importante el vapor de sellos?</div>
+    <div class="question">9. ¿Qué riesgo evita la caldera auxiliar?</div>
+    <div class="question">10. ¿Qué función cumple el condensador?</div>
+    <div class="question">11. ¿Por qué no se debe forzar el vacío?</div>
+    <div class="question">12. ¿Qué protege la calidad química?</div>
+    <div class="question">13. ¿Cuál es el orden de integración TG–TV?</div>
+    <div class="question">14. ¿Qué vigila el operador durante la secuencia?</div>
+    <div class="question">15. ¿Qué provoca una mala preparación previa?</div>
+    <div class="question">16. ¿Qué sistema acciona válvulas?</div>
+    <div class="question">17. ¿Qué indica mínimo técnico?</div>
+    <div class="question">18. ¿Cuándo finaliza el arranque?</div>
+    <div class="question">19. ¿Qué es estrés térmico?</div>
+    <div class="question">20. ¿Cuál es el papel del operador?</div>
+  </form>
+</section>
 
-        <div class="modulo" style="border-left-color: #3e92cc;">
-            <h2>3. El Camino del Vapor y la Conversión de Energía</h2>
-            <p>El vapor generado se expande en la Turbina de Vapor (TV), que suele tener tres cuerpos: Alta, Media y Baja Presión.</p>
-            
-            <h3>3.1 El Recalentado (Reheat)</h3>
-            <p>El vapor que sale de la turbina de alta (HP) vuelve a la caldera para ser <u>Recalentado</u> antes de entrar en la turbina de media (IP). Esto aumenta drásticamente el rendimiento de la planta.</p>
-            
-            <h3>3.2 El Condensador y el Vacío</h3>
-            <p>El condensador es un intercambiador gigante enfriado por agua (de mar o torre). Al convertir el vapor en agua, el volumen se reduce drásticamente, creando un <u>vacío</u>. Este vacío es fundamental: sin él, el vapor no tendría fuerza para "fluir" a través de la turbina.</p>
-        </div>
+<footer>
+  Formación Operador – Central de Ciclo Combinado
+</footer>
 
-        <div class="modulo danger-zone">
-            <h2>4. Sistemas de Protección y Disparos (Trips)</h2>
-            <p>Un operador debe reaccionar en milisegundos ante estas alarmas:</p>
-            <ul>
-                <li><strong>Presión de Aceite de Lubricación:</strong> Si cae, se activan las bombas de emergencia de Corriente Continua (Baterías) para evitar que los ejes de toneladas rocen el metal.</li>
-                <li><strong>Protección de Llama:</strong> Si los sensores UV dejan de ver llama, el sistema corta el gas inmediatamente para evitar una explosión en la caldera.</li>
-                <li><strong>Vibración de Eje:</strong> Un roce térmico o desequilibrio disparará la planta para proteger el generador.</li>
-            </ul>
-        </div>
-
-        <button class="btn-check" onclick="showTab('examen')">INGRESAR AL EXAMEN DE CERTIFICACIÓN</button>
-    </div>
-
-    <div id="examen" class="card">
-        <div id="quiz-box">
-            <h2 style="text-align: center; border: none;">Certificación de Operador de Planta</h2>
-            <p id="progreso" style="font-weight: bold; color: var(--secondary);"></p>
-            <p id="enunciado" style="font-size: 1.2rem; margin: 25px 0; min-height: 50px;"></p>
-            <div id="opciones-contenedor"></div>
-            <button id="btn-siguiente" class="btn-check" onclick="siguientePregunta()" style="display:none; background: var(--secondary);">SIGUIENTE PREGUNTA</button>
-        </div>
-        <div id="resultado-final" style="display:none; text-align: center;">
-            <h2>Calificación Final</h2>
-            <div id="nota-circulo" style="font-size: 5rem; font-weight: bold; margin: 20px 0;"></div>
-            <p id="mensaje-final" style="font-size: 1.4rem;"></p>
-            <button class="btn-check" onclick="reiniciarExamen()">REPETIR CAPACITACIÓN</button>
-        </div>
-    </div>
-</div>
-
-<script>
-    const bancoPreguntas = [
-        { q: "¿Cuál es la función de las IGV en el compresor?", a: ["Enfriar el aire", "Regular el flujo de aire para evitar inestabilidad", "Aumentar la presión de gas"], c: 1 },
-        { q: "¿Para qué sirve el Economizador?", a: ["Producir vapor de baja", "Precalentar agua evitando el choque térmico", "Enfriar la chimenea"], c: 1 },
-        { q: "¿Qué sucede en el Tambor de Vapor (Drum)?", a: ["Se genera electricidad", "Se separa el vapor seco del agua líquida", "Se quema el gas"], c: 1 },
-        { q: "¿Qué añade el sobrecalentador al vapor?", a: ["Calor latente", "Calor sensible (sube temperatura)", "Presión barométrica"], c: 1 },
-        { q: "¿Cuál es el objetivo del vacío en el condensador?", a: ["Limpiar el agua", "Maximizar la expansión del vapor en la turbina", "Enfriar el generador"], c: 1 },
-        { q: "¿Qué sistema protege los cojinetes si fallan las bombas de CA?", a: ["El compresor", "Bombas de emergencia de CC (Baterías)", "La caldera"], c: 1 },
-        { q: "¿Qué es el Recalentado (Reheat)?", a: ["Volver a calentar el vapor tras pasar por la turbina HP", "Encender de nuevo la turbina de gas", "Enfriar el condensado"], c: 0 },
-        { q: "¿Por qué el agua de ciclo debe tener bajísima conductividad?", a: ["Para que pese menos", "Para evitar corrosión e incrustaciones en tubos", "Para que hierva antes"], c: 1 },
-        { q: "¿Qué detecta un sensor UV en la cámara de combustión?", a: ["Presión", "Presencia de llama", "Humedad"], c: 1 },
-        { q: "¿A cuántas RPM gira una turbina sincronizada a 50Hz?", a: ["1.500 rpm", "3.000 rpm", "3.600 rpm"], c: 1 },
-        { q: "¿Qué es el 'Spread' térmico?", a: ["Velocidad del aire", "Diferencia de temperatura entre quemadores", "Presión de salida"], c: 1 },
-        { q: "¿Dónde ocurre el cambio de fase de agua a vapor?", a: ["Sobrecalentador", "Evaporador", "Economizador"], c: 1 },
-        { q: "¿Qué gas refrigera los generadores de alta potencia?", a: ["Oxígeno", "Hidrógeno (H2)", "Nitrógeno"], c: 1 },
-        { q: "¿Qué hace un atemperador?", a: ["Sube la presión", "Controla la temperatura del vapor inyectando agua", "Limpia los tubos"], c: 1 },
-        { q: "¿Qué es el sistema Taprogge?", a: ["Un tipo de gas", "Limpieza de tubos de condensador con bolas de caucho", "Un freno"], c: 1 },
-        { q: "¿Por qué los gases de chimenea no deben bajar de ~120°C?", a: ["Por eficiencia", "Para evitar condensación ácida corrosiva", "Por seguridad de aves"], c: 1 },
-        { q: "¿Cuál es la función del vapor de sellado (Gland Steam)?", a: ["Mover el eje", "Evitar entrada de aire al vacío por el eje", "Calentar el condensador"], c: 1 },
-        { q: "¿Qué componente eleva el agua a más de 100 bar?", a: ["Bombas de extracción", "Bombas de agua de alimentación", "Eyectores"], c: 1 },
-        { q: "¿Qué es el Ciclo Brayton?", a: ["El ciclo del vapor", "El ciclo de la turbina de gas", "El ciclo del agua de mar"], c: 1 },
-        { q: "¿Qué ocurre en la purga inicial del arranque?", a: ["Se calienta el metal", "Se eliminan gases acumulados en la caldera", "Se sincroniza la red"], c: 1 }
-    ];
-
-    let indiceActual = 0; let aciertos = 0;
-
-    function showTab(id) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        document.getElementById('btn-' + id).classList.add('active');
-        if(id === 'examen') reiniciarExamen();
-    }
-
-    function cargarPregunta() {
-        const p = bancoPreguntas[indiceActual];
-        document.getElementById('progreso').innerText = `Pregunta ${indiceActual + 1} de 20`;
-        document.getElementById('enunciado').innerText = p.q;
-        const contenedor = document.getElementById('opciones-contenedor');
-        contenedor.innerHTML = '';
-        p.a.forEach((op, i) => {
-            const btn = document.createElement('button');
-            btn.innerText = op; btn.className = 'opcion';
-            btn.onclick = () => verificar(i, btn);
-            contenedor.appendChild(btn);
-        });
-        document.getElementById('btn-siguiente').style.display = 'none';
-    }
-
-    function verificar(sel, el) {
-        const correcta = bancoPreguntas[indiceActual].c;
-        const botones = document.querySelectorAll('.opcion');
-        botones.forEach(b => b.disabled = true);
-        if(sel === correcta) { el.style.background = "#d4edda"; aciertos++; }
-        else { el.style.background = "#f8d7da"; botones[correcta].style.background = "#d4edda"; }
-        document.getElementById('btn-siguiente').style.display = 'block';
-    }
-
-    function siguientePregunta() {
-        indiceActual++;
-        if(indiceActual < bancoPreguntas.length) cargarPregunta();
-        else mostrarResultado();
-    }
-
-    function mostrarResultado() {
-        document.getElementById('quiz-box').style.display = 'none';
-        document.getElementById('resultado-final').style.display = 'block';
-        const nota = (aciertos / 20) * 10;
-        document.getElementById('nota-circulo').innerText = nota.toFixed(1);
-        document.getElementById('mensaje-final').innerText = nota >= 7 ? "¡Certificación Aprobada!" : "Nivel Insuficiente. Repase el Manual.";
-        document.getElementById('nota-circulo').style.color = nota >= 7 ? "var(--success)" : "var(--accent)";
-    }
-
-    function reiniciarExamen() {
-        indiceActual = 0; aciertos = 0;
-        document.getElementById('quiz-box').style.display = 'block';
-        document.getElementById('resultado-final').style.display = 'none';
-        cargarPregunta();
-    }
-    cargarPregunta();
-</script>
 </body>
 </html>
