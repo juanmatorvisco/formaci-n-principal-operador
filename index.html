@@ -439,31 +439,69 @@ function showSection(id) {
 
 <!-- EXAMEN -->
 <section id="examen">
-  <h2>Examen práctico (20 preguntas)</h2>
 
-  <form>
-    <div class="question">1. ¿Qué equipo inicia el proceso de arranque?</div>
-    <div class="question">2. ¿Por qué es crítica la barra de 6,6 kV?</div>
-    <div class="question">3. ¿Qué función tiene el LCI?</div>
-    <div class="question">4. ¿Para qué sirve la HRSG?</div>
-    <div class="question">5. ¿Qué indica ST Ready?</div>
-    <div class="question">6. ¿Qué indica GT Ready?</div>
-    <div class="question">7. ¿Qué sistema permite crear vacío?</div>
-    <div class="question">8. ¿Por qué es importante el vapor de sellos?</div>
-    <div class="question">9. ¿Qué riesgo evita la caldera auxiliar?</div>
-    <div class="question">10. ¿Qué función cumple el condensador?</div>
-    <div class="question">11. ¿Por qué no se debe forzar el vacío?</div>
-    <div class="question">12. ¿Qué protege la calidad química?</div>
-    <div class="question">13. ¿Cuál es el orden de integración TG–TV?</div>
-    <div class="question">14. ¿Qué vigila el operador durante la secuencia?</div>
-    <div class="question">15. ¿Qué provoca una mala preparación previa?</div>
-    <div class="question">16. ¿Qué sistema acciona válvulas?</div>
-    <div class="question">17. ¿Qué indica mínimo técnico?</div>
-    <div class="question">18. ¿Cuándo finaliza el arranque?</div>
-    <div class="question">19. ¿Qué es estrés térmico?</div>
-    <div class="question">20. ¿Cuál es el papel del operador?</div>
-  </form>
-</section>
+  <h2>Examen práctico – Operador de Central de Ciclo Combinado</h2>
+  <p>
+    Examen tipo test de 20 preguntas.  
+    Cada pregunta tiene una sola respuesta correcta.  
+    <strong>Resultado mínimo para APTO: 80 %</strong>
+  </p>
+
+  <form id="quiz">
+
+    <!-- PREGUNTA 1 -->
+    <p><strong>1. ¿Dónde entra el gas natural a la central?</strong></p>
+    <input type="radio" name="q1" value="0"> En la cámara de combustión<br>
+    <input type="radio" name="q1" value="1"> En la Estación de Regulación y Medida (ERM)<br>
+    <input type="radio" name="q1" value="0"> En el generador<br><br>
+
+    <!-- PREGUNTA 2 -->
+    <p><strong>2. Función principal de la ERM:</strong></p>
+    <input type="radio" name="q2" value="0"> Generar vapor<br>
+    <input type="radio" name="q2" value="1"> Regular presión, filtrar y medir gas<br>
+    <input type="radio" name="q2" value="0"> Refrigerar la turbina<br><br>
+
+    <!-- PREGUNTA 3 -->
+    <p><strong>3. ¿Qué equipo inicia siempre el arranque?</strong></p>
+    <input type="radio" name="q3" value="1"> Turbina de Gas<br>
+    <input type="radio" name="q3" value="0"> Turbina de Vapor<br>
+    <input type="radio" name="q3" value="0"> Condensador<br><br>
+
+    <!-- PREGUNTA 4 -->
+    <p><strong>4. Función del compresor en la TG:</strong></p>
+    <input type="radio" name="q4" value="1"> Comprimir el aire para la combustión<br>
+    <input type="radio" name="q4" value="0"> Generar electricidad<br>
+    <input type="radio" name="q4" value="0"> Condensar vapor<br><br>
+
+    <!-- PREGUNTA 5 -->
+    <p><strong>5. ¿Qué hace la cámara de combustión?</strong></p>
+    <input type="radio" name="q5" value="1"> Quema gas con aire comprimido<br>
+    <input type="radio" name="q5" value="0"> Enfría los gases<br>
+    <input type="radio" name="q5" value="0"> Produce vacío<br><br>
+
+    <!-- PREGUNTA 6 -->
+    <p><strong>6. Los gases de escape se aprovechan en:</strong></p>
+    <input type="radio" name="q6" value="0"> El condensador<br>
+    <input type="radio" name="q6" value="1"> La HRSG<br>
+    <input type="radio" name="q6" value="0"> El transformador<br><br>
+
+    <!-- PREGUNTA 7 -->
+    <p><strong>7. Función principal de la HRSG:</strong></p>
+    <input type="radio" name="q7" value="1"> Generar vapor con gases de escape<br>
+    <input type="radio" name="q7" value="0"> Quemar combustible<br>
+    <input type="radio" name="q7" value="0"> Generar vacío<br><br>
+
+    <!-- PREGUNTA 8 -->
+    <p><strong>8. ¿Por qué no se calienta la HRSG bruscamente?</strong></p>
+    <input type="radio" name="q8" value="1"> Para evitar estrés térmico<br>
+    <input type="radio" name="q8" value="0"> Para ahorrar combustible<br>
+    <input type="radio" name="q8" value="0"> Por normativa eléctrica<br><br>
+
+    <!-- PREGUNTA 9 -->
+    <p><strong>9. ¿Qué convierte energía mecánica en eléctrica?</strong></p>
+    <input type="radio" name="q9" value="1"> Generador<br>
+    <input type="radio" name="q9" value="0"> Transformador<br>
+
 
 <footer>
   Formación Operador – Central de Ciclo Combinado
