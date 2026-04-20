@@ -59,97 +59,122 @@ perar<!DOCTYPE html>
         <button class="btn-check" style="background: var(--primary);" onclick="showTab('leccion')">EXPLORAR MANUAL </button>
     </div>
 <section id="guia-arranque">
-    <section id="guia-arranque">
 
   <h1>Guía formativa de arranque de unidad</h1>
   <p><strong>Central CTCC Plana del Vent</strong></p>
-
-  <h2>1. Objetivo de la guía</h2>
   <p>
-    Esta guía tiene como objetivo formar al operador en la comprensión completa
-    del proceso de arranque de la unidad, desde parada hasta entrada en carga.
+    Documento formativo para operadores.  
+    Esta guía explica el proceso completo de arranque desde un punto de vista
+    operativo y formativo. No sustituye al IT oficial.
   </p>
 
-  <h2>2. Concepto general del arranque</h2>
+  <hr>
+
+  <h2>1. Concepto general del arranque</h2>
   <p>
-    El arranque de una unidad de ciclo combinado es un proceso progresivo
-    y controlado. La turbina de gas inicia el proceso, la caldera de recuperación
-    aprovecha la energía térmica y la turbina de vapor se integra cuando las
-    condiciones lo permiten.
+    El arranque de una unidad de ciclo combinado no es una única maniobra, sino un
+    proceso progresivo y controlado. La turbina de gas inicia el proceso, la caldera
+    de recuperación aprovecha el calor de los gases de escape y la turbina de vapor
+    se integra cuando las condiciones térmicas son adecuadas.
+  </p>
+  <p>
+    El operador no “arranca máquinas”, sino que prepara sistemas, valida condiciones
+    y supervisa la secuencia automática.
   </p>
 
-  <h2>3. Fases del arranque</h2>
+  <h2>2. Fases del proceso de arranque</h2>
   <ol>
     <li>Verificación de condiciones previas</li>
-    <li>Preparación de servicios generales</li>
+    <li>Preparación de servicios generales y auxiliares</li>
     <li>Preparación del ciclo agua-vapor</li>
     <li>Obtención de GT Ready to Start</li>
     <li>Obtención de ST Ready to Start</li>
-    <li>Autosecuencia de arranque</li>
+    <li>Ejecución de la autosecuencia</li>
     <li>Integración de la turbina de vapor</li>
     <li>Entrada en carga y estabilización</li>
   </ol>
 
-  <h2>4. Condiciones previas al arranque</h2>
+  <hr>
 
-  <h3>4.1 Importancia</h3>
+  <h2>3. Condiciones previas al arranque</h2>
+
+  <h3>3.1 Importancia de las condiciones previas</h3>
   <p>
-    La mayoría de incidencias en los arranques se producen por una preparación
-    incompleta. Un arranque bien preparado reduce alarmas y evita disparos.
+    La mayoría de problemas durante los arranques se originan antes de iniciar la
+    autosecuencia. Una preparación incompleta provoca alarmas, bloqueos o disparos.
+  </p>
+  <p>
+    Un arranque bien preparado es más seguro, más rápido y menos estresante para
+    los equipos.
   </p>
 
-  <h3>4.2 Suministro eléctrico</h3>
+  <h3>3.2 Suministro eléctrico</h3>
   <p>
-    Durante el arranque, especialmente con el LCI, la demanda eléctrica aumenta.
-    La estabilidad de la barra de 6,6 kV es crítica para evitar disparos.
+    Durante el arranque, especialmente con el arrancador estático (LCI), la demanda
+    eléctrica aumenta de forma significativa.
+  </p>
+  <ul>
+    <li>La red MAT debe estar correctamente alineada.</li>
+    <li>La barra de 6,6 kV debe ser estable.</li>
+    <li>El LCI debe estar disponible y sin fallos.</li>
+    <li>Los sistemas de corriente continua deben estar operativos.</li>
+    <li>El grupo diésel debe estar disponible en automático.</li>
+  </ul>
+  <p>
+    Una caída de tensión en esta fase puede provocar el disparo del LCI o el fallo
+    del arranque de la turbina de gas.
   </p>
 
-  <h2>5. Sistemas de agua y refrigeración</h2>
+  <h3>3.3 Servicios generales</h3>
+
+  <h4>Aire comprimido</h4>
   <p>
-    Los sistemas de agua garantizan la refrigeración del ciclo y permiten
-    establecer el vacío del condensador necesario para la integración de la TV.
+    El aire comprimido es indispensable para el accionamiento de válvulas,
+    purgas y actuadores. Una presión insuficiente bloquea automáticamente
+    muchas maniobras.
   </p>
 
-  <h2>6. Ciclo agua-vapor</h2>
+  <h4>HVAC y ventilación</h4>
   <p>
-    El condensador debe estar lleno y desaireado. La calidad química del agua
-    es crítica desde el inicio del arranque.
+    La ventilación protege equipos eléctricos, electrónicos y el generador.
+    Altas temperaturas pueden generar enclavamientos durante el arranque.
   </p>
 
-  <h2>7. Caldera auxiliar y vapor auxiliar</h2>
+  <h4>Protección contra incendios</h4>
   <p>
-    La caldera auxiliar permite precalentar sistemas, alimentar vapor de sellos
-    y establecer vacío antes de arrancar la turbina de gas.
+    Los sistemas de protección contra incendios deben estar armados y disponibles
+    antes de arrancar la unidad.
   </p>
 
-  <h2>8. Turbina de vapor - ST Ready</h2>
+  <hr>
+
+  <h2>4. Sistemas de agua y refrigeración</h2>
+
+  <h3>4.1 Agua de mar y torres</h3>
   <p>
-    El estado ST Ready confirma que el sistema de sellado, el vacío, el aceite
-    y las expansiones están dentro de los límites de seguridad.
+    El sistema de agua de mar proporciona la refrigeración necesaria para las
+    torres y el condensador.
+  </p>
+  <p>
+    Problemas en este sistema repercuten más adelante en el vacío y en la turbina
+    de vapor.
   </p>
 
-  <h2>9. Turbina de gas - GT Ready</h2>
+  <h3>4.2 Circuito abierto y circuito cerrado</h3>
   <p>
-    El estado GT Ready indica que la turbina de gas y sus sistemas auxiliares
-    están preparados para iniciar el arranque automático.
+    El circuito abierto evacúa la mayor parte del calor del proceso, mientras
+    que el circuito cerrado protege equipos sensibles.
+  </p>
+  <p>
+    El operador debe aprender a relacionar presión, caudal y temperatura, y
+    reconocer síntomas de cavitación o desalineación.
   </p>
 
-  <h2>10. Autosecuencia de arranque</h2>
-  <p>
-    La autosecuencia ejecuta el arranque de forma automática siguiendo una lógica
-    predefinida. El operador debe supervisar activamente todo el proceso.
-  </p>
+  <hr>
 
-  <h2>11. Integración y carga</h2>
-  <p>
-    La turbina de vapor se integra progresivamente una vez la TG está estable,
-    respetando límites térmicos y de estrés.
-  </p>
+  <h2>5. Ciclo agua-vapor y condensador</h2>
 
-  <h2>12. Cierre del arranque</h2>
-  <p>
-    El arranque finaliza cuando la unidad está estabilizada y disponible para
-    control normal de carga.
+
   </p>
 
 </section>
