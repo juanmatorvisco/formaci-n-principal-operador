@@ -385,58 +385,227 @@ function showSection(id) {
   </details>
 </section>
 
-<!-- FUNCIONAMIENTO -->
-<section id="funcionamiento">
-  <h2>Funcionamiento general de la unidad</h2>
+<!-- ================= SISTEMAS ================= -->
+<section id="sistemas">
+
+  <h2>Sistemas y equipos de la central</h2>
   <p>
-    La unidad opera de forma automática, pero requiere
-    <strong>supervisión activa del operador</strong>.
+    En esta sección se explican todos los sistemas principales de la central,
+    desde la llegada del combustible hasta la generación de electricidad.
+    El operador debe entender cada sistema de forma individual antes de
+    comprender el funcionamiento global.
   </p>
-  <ol>
-    <li>La TG genera potencia inicial.</li>
-    <li>La HRSG produce vapor.</li>
-    <li>La TV se integra cuando hay condiciones térmicas.</li>
-    <li>La carga se incrementa de forma progresiva.</li>
-  </ol>
+
+  <details>
+    <summary><strong>1. Estación de Regulación y Medida de Gas (ERM)</strong></summary>
+    <p>
+      El gas natural llega a la central desde la red de transporte a muy alta presión.
+      Antes de utilizarlo, debe pasar por la ERM.
+    </p>
+    <ul>
+      <li>Reduce la presión del gas a valores seguros</li>
+      <li>Filtra partículas sólidas</li>
+      <li>Mide caudal y energía para control y facturación</li>
+    </ul>
+    <p>
+      Sin una ERM operativa, la turbina de gas no puede recibir combustible.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>2. Sistema de combustible de la Turbina de Gas</strong></summary>
+    <p>
+      Conduce el gas desde la ERM hasta la cámara de combustión.
+      Incluye válvulas de aislamiento, válvulas de control,
+      calentadores de gas y sistemas de seguridad.
+    </p>
+    <p>
+      Su objetivo es garantizar una combustión estable,
+      controlada y segura en todo momento.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>3. Turbina de Gas (TG)</strong></summary>
+    <p>
+      Es el equipo que inicia la producción de energía.
+      Convierte la energía química del gas en energía mecánica.
+    </p>
+    <p><strong>Partes principales:</strong></p>
+    <ul>
+      <li>Compresor: aspira y comprime aire</li>
+      <li>Cámara de combustión: quema gas con aire</li>
+      <li>Turbina: extrae energía de los gases calientes</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>4. Generador eléctrico</strong></summary>
+    <p>
+      Convierte la energía mecánica del eje de la turbina
+      en energía eléctrica.
+    </p>
+    <p>
+      Necesita sistemas auxiliares como excitación,
+      refrigeración y sellado.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>5. Caldera de Recuperación (HRSG)</strong></summary>
+    <p>
+      Aprovecha el calor de los gases de escape de la TG
+      para producir vapor.
+    </p>
+    <p>
+      Genera vapor de alta, media y baja presión,
+      sin necesidad de quemar combustible adicional.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>6. Sistema agua–vapor</strong></summary>
+    <p>
+      Incluye condensador, bombas de condensado,
+      calderines y sistemas de tratamiento.
+    </p>
+    <p>
+      Su misión es cerrar el ciclo del agua y
+      suministrar vapor limpio a la turbina de vapor.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>7. Turbina de Vapor (TV)</strong></summary>
+    <p>
+      Convierte la energía del vapor en energía mecánica adicional.
+      Solo puede entrar en servicio cuando hay vacío
+      y vapor de sellos.
+    </p>
+  </details>
+
+  <details>
+    <summary><strong>8. Condensador y torres de refrigeración</strong></summary>
+    <p>
+      Enfrían el vapor de escape de la TV,
+      permitiendo recuperar el agua y crear vacío.
+    </p>
+  </details>
+
 </section>
 
-<!-- ARRANQUE -->
-<section id="arranque">
-  <h2>Guía formativa de arranque</h2>
+<!-- ================= FUNCIONAMIENTO ================= -->
+<section id="funcionamiento">
 
-  <h3>Condiciones previas</h3>
+  <h2>Funcionamiento global de la central</h2>
+  <p>
+    Aquí se explica cómo se relacionan todos los sistemas entre sí
+    y por qué la central funciona como una única unidad integrada.
+  </p>
+
+  <h3>1. Cadena energética</h3>
+  <ol>
+    <li>El gas entra por la ERM</li>
+    <li>Alimenta la turbina de gas</li>
+    <li>La TG produce energía mecánica</li>
+    <li>El generador produce electricidad</li>
+    <li>Los gases calientes alimentan la HRSG</li>
+    <li>La HRSG produce vapor</li>
+    <li>El vapor mueve la turbina de vapor</li>
+    <li>El vapor se condensa y se reutiliza</li>
+  </ol>
+
+  <h3>2. Dependencia entre sistemas</h3>
+  <p>
+    Ningún sistema trabaja de forma aislada:
+  </p>
   <ul>
-    <li>Red eléctrica alineada</li>
-    <li>Barra 6,6 kV estable</li>
-    <li>Aire comprimido disponible</li>
-    <li>Agua de mar y refrigeración operativas</li>
+    <li>Sin gas no hay TG</li>
+    <li>Sin TG no hay HRSG</li>
+    <li>Sin HRSG no hay vapor</li>
+    <li>Sin vacío no hay TV</li>
+    <li>Sin agua no hay ciclo</li>
   </ul>
 
-  <h3>GT Ready to Start</h3>
   <p>
-    Indica que la turbina de gas y sus sistemas están preparados
-    para iniciar la secuencia automática.
+    El operador debe pensar siempre en términos de
+    <strong>causa y efecto</strong>.
   </p>
 
-  <h3>ST Ready to Start</h3>
-  <p>
-    Confirma vacío, vapor de sellos, aceite correcto
-    y expansiones dentro de límites.
-  </p>
-
-  <h3>Autosecuencia</h3>
-  <p>
-    Ejecuta el arranque siguiendo pasos fijos (20, 21, 22, 26),
-    supervisados por el operador.
-  </p>
-
-  <h3>Entrada en carga</h3>
-  <p>
-    La turbina de vapor se integra progresivamente hasta alcanzar
-    el mínimo técnico.
-  </p>
 </section>
 
+<!-- ================= ARRANQUE ================= -->
+<section id="arranque">
+
+  <h2>Guía completa de arranque de la unidad</h2>
+
+  <h3>1. Preparación previa</h3>
+  <p>
+    Antes de cualquier arranque se verifican
+    todos los sistemas auxiliares:
+  </p>
+  <ul>
+    <li>Electricidad estable</li>
+    <li>Aire comprimido</li>
+    <li>Agua de refrigeración</li>
+    <li>Protecciones activas</li>
+  </ul>
+
+  <h3>2. Preparación del ciclo agua–vapor</h3>
+  <p>
+    Se llenan sistemas, se purga aire,
+    se prepara el condensador
+    y se arranca la caldera auxiliar.
+  </p>
+
+  <h3>3. Creación de vacío y sellos</h3>
+  <p>
+    El vapor auxiliar alimenta los sellos
+    y se ponen en marcha las bombas de vacío.
+  </p>
+
+  <h3>4. GT Ready to Start</h3>
+  <p>
+    Indica que la TG está preparada:
+    gas, aire, aceite, electricidad y control correctos.
+  </p>
+
+  <h3>5. Arranque de la Turbina de Gas</h3>
+  <p>
+    Se ejecuta la autosecuencia:
+  </p>
+  <ul>
+    <li>Giro con LCI</li>
+    <li>Encendido</li>
+    <li>Aceleración controlada</li>
+    <li>Sincronización</li>
+  </ul>
+
+  <h3>6. Calentamiento de la HRSG</h3>
+  <p>
+    Los gases de escape calientan la caldera
+    lentamente para evitar estrés térmico.
+  </p>
+
+  <h3>7. ST Ready to Start</h3>
+  <p>
+    Confirma que la turbina de vapor
+    está lista para integrarse.
+  </p>
+
+  <h3>8. Entrada de la Turbina de Vapor</h3>
+  <p>
+    Se introduce vapor progresivamente,
+    aumentando potencia y eficiencia.
+  </p>
+
+  <h3>9. Estabilización y mínimo técnico</h3>
+  <p>
+    La unidad se estabiliza y queda
+    disponible para operación normal.
+  </p>
+
+</section>
 <!-- EXAMEN -->
 <section id="examen">
 
