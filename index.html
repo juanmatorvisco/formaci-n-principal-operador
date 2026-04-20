@@ -289,31 +289,116 @@ function showSection(id) {
 <!-- EXAMEN -->
 <section id="examen">
 
-  <h2>Examen práctico – Operador de Central de Ciclo Combinado</h2>
+  <h2>Examen tipo test – Operador de Central de Ciclo Combinado</h2>
   <p>
-    Examen tipo test de 20 preguntas.  
+    Examen de 20 preguntas.  
     Cada pregunta tiene una sola respuesta correcta.  
     <strong>Resultado mínimo para APTO: 80 %</strong>
   </p>
 
   <form id="quiz">
 
+    <!-- PREGUNTAS 1–10 -->
     <p><strong>1. ¿Dónde entra el gas natural a la central?</strong></p>
-    <input type="radio" name="q1" value="0"> En la cámara de combustión<br>
-    <input type="radio" name="q1" value="1"> En la Estación de Regulación y Medida (ERM)<br>
-    <input type="radio" name="q1" value="0"> En el generador<br><br>
+    <input type="radio" name="q1" value="0"> Cámara de combustión<br>
+    <input type="radio" name="q1" value="1"> Estación de Regulación y Medida (ERM)<br>
+    <input type="radio" name="q1" value="0"> Generador<br><br>
 
     <p><strong>2. Función principal de la ERM:</strong></p>
     <input type="radio" name="q2" value="0"> Generar vapor<br>
     <input type="radio" name="q2" value="1"> Regular presión, filtrar y medir gas<br>
-    <input type="radio" name="q2" value="0"> Refrigerar la turbina<br><br>
+    <input type="radio" name="q2" value="0"> Refrigerar equipos<br><br>
 
     <p><strong>3. ¿Qué equipo inicia siempre el arranque?</strong></p>
     <input type="radio" name="q3" value="1"> Turbina de Gas<br>
     <input type="radio" name="q3" value="0"> Turbina de Vapor<br>
     <input type="radio" name="q3" value="0"> Condensador<br><br>
 
-    <!-- (continúa hasta la 20, ya probadas) -->
+    <p><strong>4. Función del compresor de la TG:</strong></p>
+    <input type="radio" name="q4" value="1"> Comprimir aire para la combustión<br>
+    <input type="radio" name="q4" value="0"> Generar electricidad<br>
+    <input type="radio" name="q4" value="0"> Condensar vapor<br><br>
+
+    <p><strong>5. ¿Para qué sirve la HRSG?</strong></p>
+    <input type="radio" name="q5" value="1"> Generar vapor con gases de escape<br>
+    <input type="radio" name="q5" value="0"> Quemar gas<br>
+    <input type="radio" name="q5" value="0"> Crear vacío<br><br>
+
+    <p><strong>6. ¿Qué convierte energía mecánica en eléctrica?</strong></p>
+    <input type="radio" name="q6" value="1"> Generador<br>
+    <input type="radio" name="q6" value="0"> Transformador<br>
+    <input type="radio" name="q6" value="0"> Condensador<br><br>
+
+    <p><strong>7. El condensador sirve para:</strong></p>
+    <input type="radio" name="q7" value="1"> Condensar vapor y crear vacío<br>
+    <input type="radio" name="q7" value="0"> Quemar gas<br>
+    <input type="radio" name="q7" value="0"> Generar electricidad<br><br>
+
+    <p><strong>8. El vacío mejora:</strong></p>
+    <input type="radio" name="q8" value="1"> Rendimiento de la TV<br>
+    <input type="radio" name="q8" value="0"> Combustión<br>
+    <input type="radio" name="q8" value="0"> Refrigeración<br><br>
+
+    <p><strong>9. Vapor de sellos sirve para:</strong></p>
+    <input type="radio" name="q9" value="1"> Evitar entrada de aire<br>
+    <input type="radio" name="q9" value="0"> Refrigerar generador<br>
+    <input type="radio" name="q9" value="0"> Quemar gas<br><br>
+
+    <p><strong>10. ST Ready indica:</strong></p>
+    <input type="radio" name="q10" value="1"> TV preparada para entrar<br>
+    <input type="radio" name="q10" value="0"> TG sincronizada<br>
+    <input type="radio" name="q10" value="0"> HRSG fría<br><br>
+
+    <!-- PREGUNTAS 11–20 -->
+    <p><strong>11. GT Ready indica:</strong></p>
+    <input type="radio" name="q11" value="1"> TG lista para arrancar<br>
+    <input type="radio" name="q11" value="0"> TV acoplada<br>
+    <input type="radio" name="q11" value="0"> Condensador lleno<br><br>
+
+    <p><strong>12. El LCI se usa para:</strong></p>
+    <input type="radio" name="q12" value="1"> Arrancar la TG eléctricamente<br>
+    <input type="radio" name="q12" value="0"> Refrigerar HRSG<br>
+    <input type="radio" name="q12" value="0"> Crear vacío<br><br>
+
+    <p><strong>13. Sin aire comprimido:</strong></p>
+    <input type="radio" name="q13" value="1"> No funcionan válvulas<br>
+    <input type="radio" name="q13" value="0"> No hay gas<br>
+    <input type="radio" name="q13" value="0"> No hay red<br><br>
+
+    <p><strong>14. Función del transformador:</strong></p>
+    <input type="radio" name="q14" value="1"> Elevar tensión<br>
+    <input type="radio" name="q14" value="0"> Generar potencia<br>
+    <input type="radio" name="q14" value="0"> Condensar vapor<br><br>
+
+    <p><strong>15. El arranque termina cuando:</strong></p>
+    <input type="radio" name="q15" value="1"> Unidad estable en mínimo técnico<br>
+    <input type="radio" name="q15" value="0"> TG arranca<br>
+    <input type="radio" name="q15" value="0"> Se crea vacío<br><br>
+
+    <p><strong>16. ¿Qué causa una mala preparación?</strong></p>
+    <input type="radio" name="q16" value="1"> Alarmas y disparos<br>
+    <input type="radio" name="q16" value="0"> Más potencia<br>
+    <input type="radio" name="q16" value="0"> Mejor rendimiento<br><br>
+
+    <p><strong>17. ¿Qué fluido mueve la TV?</strong></p>
+    <input type="radio" name="q17" value="1"> Vapor<br>
+    <input type="radio" name="q17" value="0"> Gas<br>
+    <input type="radio" name="q17" value="0"> Aire<br><br>
+
+    <p><strong>18. La HRSG se calienta:</strong></p>
+    <input type="radio" name="q18" value="1"> Progresivamente<br>
+    <input type="radio" name="q18" value="0"> De golpe<br>
+    <input type="radio" name="q18" value="0"> Manualmente<br><br>
+
+    <p><strong>19. El operador debe:</strong></p>
+    <input type="radio" name="q19" value="1"> Supervisar y entender<br>
+    <input type="radio" name="q19" value="0"> Forzar sistemas<br>
+    <input type="radio" name="q19" value="0"> Ignorar alarmas<br><br>
+
+    <p><strong>20. Objetivo del ciclo combinado:</strong></p>
+    <input type="radio" name="q20" value="1"> Maximizar eficiencia<br>
+    <input type="radio" name="q20" value="0"> Usar más combustible<br>
+    <input type="radio" name="q20" value="0"> Simplificar equipos<br><br>
 
     <button type="button" onclick="corregir()">Corregir examen</button>
   </form>
@@ -347,6 +432,7 @@ function showSection(id) {
     }
   </script>
 
+</section>
 </section>
 
 <footer>
